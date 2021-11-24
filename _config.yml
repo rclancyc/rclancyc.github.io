@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: #Richard Clancy
+title: Richard Clancy
 email: richard.clancy@colorado.edu
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to the personal website of Richard Clancy! You can find information about some of my projects, research interests, and past experiences.
@@ -21,7 +21,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username: rclancyc
 minimal_mistakes_skin: default
 search: true
-s
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
@@ -70,11 +70,14 @@ author:
       icon: "fas fa-fw fa-graduation-cap" 
       url: "https://scholar.google.com/citations?user=Cy9picwAAAAJ&hl"
     - label: "ResearchGate"
-      icon: "fa-brands fa-researchgate"
+      icon: "fab fa-fw fa-researchgate"
       url: "https://www.researchgate.net/profile/Richard-Clancy-2"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "www.linkedin.com/in/richard-j-clancy"
+      url: "https://www.linkedin.com/in/richard-j-clancy"
+    - label: "Orcid"
+      icon: "fab fa-fw fa-orcid"
+      url: "https://orcid.org/0000-0002-2593-8623"
 
 footer:
   links:
@@ -92,7 +95,10 @@ footer:
       url: "https://www.researchgate.net/profile/Richard-Clancy-2"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
-      url: "www.linkedin.com/in/richard-j-clancy"
+      url: "https://www.linkedin.com/in/richard-j-clancy"
+    - label: "Orcid"
+      icon: "fab fa-fw fa-orcid"
+      url: "https://orcid.org/0000-0002-2593-8623"
 
 defaults:
   # _posts

@@ -2,7 +2,7 @@ main:
   - title: "Projects"
     url: /projects/
   - title: "Experience"
-    url: /experience
+    url: /experience/
   - title: "Posts"
     url: /posts/
   #- title: "Categories"
@@ -11,3 +11,28 @@ main:
   #  url: /tags/
   - title: "About"
     url: /about/
+
+
+  # sidebar for portfolio
+  # here, I will a title of the index pages, so projects (in which I have markdowns)
+projects:
+  - title: "Statistics and Regression"
+    children: 
+      - title: "Robust Least Squares"
+        url: /projects/robustLS/
+      - title: "Approximate maximum likelihood"
+        url: /projects/amle/
+
+  - title: "Numerical Methods"
+    children:
+      - title: "Mixed Precision Solvers"
+        url: /projects/trophy/
+      - title: "Hermite intepolation"
+        url: /projects/hermite/
+      - title: "Error Bounds for Irregular Grids"
+        url: /projects/errorbounds/
+
+  - title: "Simulation and modeling"
+    children:
+      - title: "Neuroimaging"
+        url: /portfolio/neuro/

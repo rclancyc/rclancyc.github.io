@@ -6,4 +6,4 @@ header:
   overlay_image: /assets/images/glacier1.jpg
 permalink: /experience/
 ---
-Under constuction
+Under construction...
