@@ -100,6 +100,12 @@ footer:
       icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-2593-8623"
 
+collections:
+  portfolio:
+    output: true
+    #permalink: /:collection/:path/
+
+
 defaults:
   # _posts
   - scope:
@@ -121,20 +127,17 @@ defaults:
       author_profile: true
    #portfolio
   - scope:
-      path: "_projects"
+      path: "_portfolio"
       toc: true
       toc_label: "Contents"
       type: portfolio
     values: 
       author_profile: false
       excerpt: ""
-      nav: "projects"
+      #nav: "projects"
       
 
-collections:
-  projects:
-    output: true
-    permalink: /:collection/:path/
+
 
 category_archive:
   type: liquid

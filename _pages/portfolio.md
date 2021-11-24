@@ -2,6 +2,6 @@
 title: Projects
 layout: collection
 permalink: /projects/
-collection: projects
+collection: portfolio
 classes: wide
 ---

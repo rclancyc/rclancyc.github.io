@@ -1,6 +1,6 @@
 main:
-  - title: "Projects"
-    url: /projects/
+  - title: "Portfolio"
+    url: /portfolio/
   - title: "Experience"
     url: /experience/
   - title: "Posts"
@@ -15,7 +15,7 @@ main:
 
 # sidebar for portfolio
 # here, I will a title of the index pages, so projects (in which I have markdowns)
-projects:
+portfolio:
   - title: "Statistics and Regression"
     children: 
       - title: "Robust Least Squares"
