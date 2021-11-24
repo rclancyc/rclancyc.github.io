@@ -19,20 +19,20 @@ portfolio:
   - title: "Statistics and Regression"
     children: 
       - title: "Robust Least Squares"
-        url: /projects/robustLS/
+        url: /portfolio/robustLS/
       - title: "Approximate maximum likelihood"
-        url: /projects/amle/
+        url: /portfolio/amle/
 
   - title: "Numerical Methods"
     children:
       - title: "Mixed Precision Solvers"
-        url: /projects/trophy/
+        url: /portfolio/trophy/
       - title: "Hermite intepolation"
-        url: /projects/hermite/
+        url: /portfolio/hermite/
       - title: "Error Bounds for Irregular Grids"
-        url: /projects/errorbounds/
+        url: /portfolio/errorbounds/
 
   - title: "Simulation and modeling"
     children:
       - title: "Neuroimaging"
-        url: /projects/neuro/
+        url: /portfolio/neuro/
