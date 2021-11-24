@@ -121,15 +121,20 @@ defaults:
       author_profile: true
    #portfolio
   - scope:
-      path: ""
+      path: "_projects"
       toc: true
       toc_label: "Contents"
       type: portfolio
     values: 
       author_profile: false
       excerpt: ""
-      nav: "porfolio"
-    
+      nav: "projects"
+      
+
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 category_archive:
   type: liquid

@@ -13,8 +13,8 @@ main:
     url: /about/
 
 
-  # sidebar for portfolio
-  # here, I will a title of the index pages, so projects (in which I have markdowns)
+# sidebar for portfolio
+# here, I will a title of the index pages, so projects (in which I have markdowns)
 projects:
   - title: "Statistics and Regression"
     children: 
@@ -35,4 +35,4 @@ projects:
   - title: "Simulation and modeling"
     children:
       - title: "Neuroimaging"
-        url: /portfolio/neuro/
+        url: /projects/neuro/
