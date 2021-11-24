@@ -1,7 +1,8 @@
 ---
 header:
-overlay_image: /assets/images/mammoth.HEIC
-caption: "Mammoth Hot Springs, Yellowstone NP"
-permalink: /projects/RrbustLS.html
+  overlay_image: /assets/images/mammoth.HEIC
+  caption: "Mammoth Hot Springs, Yellowstone NP"
+permalink: /projects/RrbustLS/
 ---
+
 test

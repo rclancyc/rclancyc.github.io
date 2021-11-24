@@ -56,7 +56,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Richard Clancy"
+  name   : #"Richard Clancy"
   avatar : "/assets/images/headshot.jpg"
   bio    : "Computational mathematician and data scientist"
   links:
@@ -119,6 +119,17 @@ defaults:
     values:
       layout: single
       author_profile: true
+   #portfolio
+  - scope:
+      path: ""
+      toc: true
+      toc_label: "Contents"
+      type: portfolio
+    values: 
+      author_profile: false
+      excerpt: ""
+      nav: "porfolio"
+    
 
 category_archive:
   type: liquid
