@@ -2,7 +2,7 @@
 header:
   overlay_image: /assets/images/mammoth.HEIC
   caption: "Mammoth Hot Springs, Yellowstone NP"
-permalink: /projects/index.html
+permalink: /portfolio/index.html
 ---
 # Projects
 
