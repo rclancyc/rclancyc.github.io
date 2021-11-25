@@ -1,7 +1,7 @@
 ---
 header:
   title: "Projects"
-  overlay_image: /assets/images/positano.jpg
+  overlay_image: /assets/images/positano3.jpg
   caption: "Positano, Italy"
 permalink: /projects/index
 ---
