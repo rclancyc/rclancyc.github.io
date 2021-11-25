@@ -2,7 +2,7 @@
 title: " "
 permalink: /
 header:
-  overlay_image: /assets/images/bluewater.jpg
+  overlay_image: /assets/images/bluewaters.jpg
   caption: "St. Croix, USVI"
 
 ---
