@@ -1,6 +1,7 @@
 ---
+title: ""
 header:
-  title: "Approximate Maximum Likelihood"
+  #title: "Approximate Maximum Likelihood"
   overlay_image: /assets/images/mammoth.jpg
   caption: "Mammoth Hot Springs, Yellowstone NP"
 permalink: /projects/amle/
