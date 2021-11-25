@@ -126,22 +126,15 @@ defaults:
       layout: single
       author_profile: true
   # _portfolio
-  #- scope:
-  #    path: "_projects"
-  #    type: projects
-  #  values:
-  #    layout: single
-  #    author_profile: false
-  #    share: true
-  # portfolio
   - scope:
       path: "_projects"
       type: projects
     values:
+      layout: single
       author_profile: false
-      excerpt: ""
-      sidebar:
-        nav: "projects"
+      share: true
+
+
 
 # collections
 #collections:
