@@ -1,5 +1,5 @@
 ---
-title: ""
+title: " "
 header:
   #title: "Approximate Maximum Likelihood"
   overlay_image: /assets/images/mammoth.jpg
