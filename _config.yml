@@ -103,7 +103,7 @@ footer:
 collections:
   portfolio:
     output: true
-    #permalink: /:collection/:path/
+    permalink: /:collection/:path/
 
 
 defaults:
@@ -125,16 +125,14 @@ defaults:
     values:
       layout: single
       author_profile: true
-   #portfolio
+  # _portfolio
   - scope:
       path: "_portfolio"
-      toc: true
-      toc_label: "Contents"
       type: portfolio
-    values: 
+    values:
+      layout: single
       author_profile: false
-      excerpt: ""
-      #nav: "projects"
+      share: true
       
 
 
