@@ -48,7 +48,6 @@ include:
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
@@ -141,9 +140,9 @@ defaults:
 
 
 
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
+#category_archive:
+#  type: liquid
+#  path: /categories/
+#tag_archive:
+#  type: liquid
+#  path: /tags/
