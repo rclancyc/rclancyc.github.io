@@ -1,13 +1,9 @@
 ---
-title: "Richard J Clancy"
-layout: splash
+title: " "
 permalink: /
-date: 2016-03-23T11:48:41-04:00
 header:
-  overlay_color: "#000"
-  overlay_filter: "0"
-  overlay_image: /assets/images/mike-scheid-639977-unsplash.jpg
-  caption: "Credit: [**Mike Scheid**](www.unsplash.com)"
+  overlay_image: /assets/images/bluewater.jph
+  caption: "St. Croix, USVI"
 
 
 
@@ -35,14 +31,14 @@ feature_row:
     btn_class: "btn--primary"
 ---
 
-<img src="{{ site.url }}/assets/images/headshot.jpg" width="40%" hspace="20" align="right" style="padding:15px">
+#<img src="{{ site.url }}/assets/images/headshot.jpg" width="40%" hspace="20" align="right" style="padding:15px">
 
 Welcome to my personal website! I am fifth year PhD student in applied math focusing on numerical optimization, statistics, and data science.
 
-<b>On the job market in May 2022!</b>
+#<b>On the job market in May 2022!</b>
 
-{% include feature_row id="intro" type="center" %}
+#{% include feature_row id="intro" type="center" %}
 
-<div style="margin-bottom:1cm" align="center"><font size="55">Selected Projects</font></div>
+#<div style="margin-bottom:1cm" align="center"><font size="55">Selected Projects</font></div>
 
-{% include feature_row %}
+#{% include feature_row %}
