@@ -16,7 +16,7 @@
 title: Richard Clancy
 email: richard.clancy@colorado.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to the personal website of Richard Clancy! You can find information about some of my projects, research interests, and past experiences.
+  Welcome to my personal website! You can find information about some of my projects, research interests, and past experiences.
 #twitter_username: username
 github_username: rclancyc
 minimal_mistakes_skin: default
@@ -100,10 +100,10 @@ footer:
       icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-2593-8623"
 
-#collections:
-#  projects:
-#    output: true
-#    permalink: /:collection/:path/
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 
 defaults:
@@ -144,9 +144,9 @@ defaults:
         nav: "projects"
 
 # collections
-collections:
-  projects:
-    output: true
+#collections:
+#  projects:
+#    output: true
 
 
 

@@ -2,6 +2,6 @@
 header:
   overlay_image: /assets/images/mammoth.jpg
   caption: "Mammoth Hot Springs, Yellowstone NP"
-permalink: /projects/hermite.html
+permalink: /projects/hermite/
 ---
 test
