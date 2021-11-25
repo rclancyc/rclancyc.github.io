@@ -1,7 +1,7 @@
 ---
 header:
-  overlay_image: /assets/images/mammoth.jpg
-  caption: "Mammoth Hot Springs, Yellowstone NP"
+  overlay_image: /assets/images/sunset.jpg
+  caption: "Sunset in Boulder, CO"
 permalink: /projects/trophy/
 ---
 test
