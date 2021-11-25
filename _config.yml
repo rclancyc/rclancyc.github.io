@@ -133,6 +133,9 @@ defaults:
       layout: single
       author_profile: false
       share: true
+      excerpt: ""
+      sidebar:
+        nav: "projects"
 
 
 
