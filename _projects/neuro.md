@@ -5,4 +5,5 @@ header:
   caption: "Denver, CO"
 permalink: /projects/neuro/
 ---
+
 test
