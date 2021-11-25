@@ -3,12 +3,6 @@ main:
     url: /projects/
   - title: "Experience"
     url: /experience/
-  #- title: "Posts"
-  #  url: /posts/
-  #- title: "Categories"
-  #  url: /categories/
-  #- title: "Tags"
-  #  url: /tags/
   - title: "About"
     url: /about/
 
