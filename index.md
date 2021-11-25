@@ -1,7 +1,6 @@
 ---
 title: " "
 permalink: /
-layout: splash
 author_profile: true
 header:
   overlay_image: /assets/images/bluewaters.jpg
