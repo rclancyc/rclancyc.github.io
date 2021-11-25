@@ -100,10 +100,10 @@ footer:
       icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-2593-8623"
 
-collections:
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
+#collections:
+#  projects:
+#    output: true
+#    permalink: /:collection/:path/
 
 
 defaults:
@@ -126,14 +126,28 @@ defaults:
       layout: single
       author_profile: true
   # _portfolio
+  #- scope:
+  #    path: "_projects"
+  #    type: projects
+  #  values:
+  #    layout: single
+  #    author_profile: false
+  #    share: true
+  # portfolio
   - scope:
-      path: "_portfolio"
-      type: portfolio
+      path: "_projects"
+      type: projects
     values:
-      layout: single
       author_profile: false
-      share: true
-      
+      excerpt: ""
+      sidebar:
+        nav: "projects"
+
+# collections
+collections:
+  projects:
+    output: true
+
 
 
 

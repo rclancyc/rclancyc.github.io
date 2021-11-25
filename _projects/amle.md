@@ -1,7 +1,7 @@
 ---
 header:
-  overlay_image: /assets/images/mammoth.HEIC
+  overlay_image: /assets/images/mammoth.jpg
   caption: "Mammoth Hot Springs, Yellowstone NP"
-permalink: /portfolio/amle/
+permalink: /projects/amle.html
 ---
 Under construction
