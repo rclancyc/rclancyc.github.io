@@ -11,7 +11,7 @@ permalink: /projects/amle/
 An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of $\mathbf{A}$ and $\mathbf{y}$ and using the generative model
 
 $$
-\mathbf{y} = \mathbf{A} \mathbf{x} + \boldsymbol{\eta}, \qquad \text{with} \qquad \mathbf{A} \in \mathbb{R}^{m \times n}, \ \mathbf{x} \in \mathbb{R}^n, \qquad \text{ and } \qquad \mathbf{y}, \  \boldsymbol{\eta} \in \mathbf{R}^m,
+\mathbf{y} = \mathbf{A} \mathbf{x} + \boldsymbol{\eta}, \qquad \text{with} \qquad \mathbf{A} \in \mathbb{R}^{m \times n}, \ \mathbf{x} \in \mathbb{R}^n, \ \mathbf{y}, \  \boldsymbol{\eta} \in \mathbf{R}^m,
 $$
 
 the goal of regression is to infer the model parameters $\mathbf{x}$ that best explain the observations $\mathbf{y}$. We focus on the over-determined case where $m>n$. In so using this model to fit data, we can easily understand the relationship between regressors and response variables in a simple and intuitive way.

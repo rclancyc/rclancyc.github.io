@@ -77,6 +77,9 @@
 
 
 
+
+
+
     <!-- start custom head snippets -->
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
@@ -113,8 +116,6 @@
               <a href="/projects/">Projects</a>
             </li><li class="masthead__menu-item">
               <a href="/experience/">Experience</a>
-            </li><li class="masthead__menu-item">
-              <a href="/posts/">Posts</a>
             </li><li class="masthead__menu-item">
               <a href="/about/">About</a>
             </li></ul>
@@ -162,7 +163,7 @@
     </h3>
     
       <div class="author__bio p-note" itemprop="description">
-        <p>Computational mathematician and data scientist</p>
+        <p>Computational mathematician, statistician, and data scientist</p>
 
       </div>
     
@@ -386,6 +387,24 @@
 
 
 
+
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     jax: ["input/TeX", "output/HTML-CSS"],
+     tex2jax: {
+       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+       processEscapes: true
+     },
+     "HTML-CSS": { availableFonts: ["TeX"] }
+   });
+</script>
 
 
 
