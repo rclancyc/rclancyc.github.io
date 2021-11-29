@@ -6,7 +6,7 @@ header:
   caption: "Mammoth Hot Springs, Yellowstone NP"
 permalink: /projects/amle/
 ---
-# Generative model 1
+# Generative model 2
 
 An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of $\mathbf{A}$ and $\mathbf{y}$ and using the generative model
 
@@ -21,10 +21,11 @@ the goal of regression is to infer the model parameters $\mathbf{x}$ that best e
 This problem has been studied extensively with the most common method being ordinary least squares (OLS) which can be written as
 
 $$
-\mathbf{\hat x}_{\text{OLS}} = \argmin_{\mathbf{x}} \| \mathbf{A x - y}\|^2,
+\mathbf{\hat x}_{\text{OLS}} = \text{argmin}_{\mathbf{x}} \| \mathbf{A x - y}\|^2,
 $$
 
-and is the maximum likelihood estimator (MLE) for $\mathbf{x}$ when $\boldsymbol{\eta} = \mathbf{y-A x} \sim \mathcal{N} (\boldsymbol{0}, \sigma^2 \mathbf{I})$. An enticing feature of OLS is that it has a closed form solution given by $\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dag \mathbf{A}^T \mathbf{y}$ where $\dag$ denotes the Moore-Penrose psuedo-inverse. Unfortunately, the method is known to suffer from poor conditioning. There are other formulations such as $\min_{\mathbf{x}} \| \mathbf{A x - y} \|_{\infty}$ (minimax regression) or $\min_{\mathbf{x}} \| \mathbf{A x - y} \|_1$ (least deviation regression) that coincide with the MLEs for uniform and Laplacian noise, respectively. This relationship between regression and MLE for different noise models suggests using MLE to infer model parameters in more complicated settings.
+and is the maximum likelihood estimator (MLE) for $\mathbf{x}$ when $\boldsymbol{\eta} = \mathbf{y-A x} \sim \mathcal{N} (\boldsymbol{0}, \sigma^2 \mathbf{I})$. An enticing feature of OLS is that it has a closed form solution given by 
+$$\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dag \mathbf{A}^T \mathbf{y}$$ where $\dag$ denotes the Moore-Penrose psuedo-inverse. Unfortunately, the method is known to suffer from poor conditioning. There are other formulations such as $\min_{\mathbf{x}} \| \mathbf{A x - y} \|_{\infty}$ (minimax regression) or $\min_{\mathbf{x}} \| \mathbf{A x - y} \|_1$ (least deviation regression) that coincide with the MLEs for uniform and Laplacian noise, respectively. This relationship between regression and MLE for different noise models suggests using MLE to infer model parameters in more complicated settings.
 
 # Uncertain design matrix
 
