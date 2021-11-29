@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-11-29T10:59:44-07:00">
+  <meta property="article:published_time" content="2021-11-29T11:46:05-07:00">
 
 
 
@@ -78,8 +78,6 @@
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
-
-
 
 
 
@@ -270,41 +268,44 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <h1 id="generative-model-1">Generative model 1</h1>
+        <p>When the regressors used to fit a statistical model are uncertain, ordinary least squares (the classic regression workhorse) is no longer theoretically appropriate. Unfortunately, accounting for design matrix uncertainty with linear models is often intractable. In this project, we considered an approach based on the saddle point method which is tractable and offers improved estimators. In particular, we derived an “approximate maximum likelihood function” and optimized it to find the parameters that best fit an uncertain design matrix.</p>
 
-<p>An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of $\mathbf{A}$ and $\mathbf{y}$ and using the generative model</p>
+<h1 id="generative-model">Generative model</h1>
 
-\[\mathbf{y} = \mathbf{A} \mathbf{x} + \boldsymbol{\eta}, \qquad \text{with} \qquad \mathbf{A} \in \mathbb{R}^{m \times n}, \ \mathbf{x} \in \mathbb{R}^n, \ \mathbf{y}, \  \boldsymbol{\eta} \in \mathbf{R}^m,\]
+<p>An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of \(\mathbf{A}\) and \(\mathbf{y}\) and using the generative model</p>
 
-<p>the goal of regression is to infer the model parameters $\mathbf{x}$ that best explain the observations $\mathbf{y}$. We focus on the over-determined case where $m&gt;n$. In so using this model to fit data, we can easily understand the relationship between regressors and response variables in a simple and intuitive way.</p>
+\[\mathbf{y} = \mathbf{A} \mathbf{x} + \boldsymbol{\eta}, \ \ \text{with} \ \ \mathbf{A} \in \mathbb{R}^{m \times n}, \ \mathbf{x} \in \mathbb{R}^n, \ \text{and} \ \mathbf{y}, \boldsymbol{\eta} \in \mathbb{R}^m,\]
+
+<p>the goal of regression is to infer the model parameters \(\mathbf{x}\) that best explain the observations \(\mathbf{y}\). We focus on the over-determined case where \(m&gt;n\). In so using this model to fit data, we can easily understand the relationship between regressors and response variables in a simple and intuitive way.</p>
 
 <h1 id="regression-as-maximum-likelihood-estimation">Regression as maximum likelihood estimation</h1>
 
 <p>This problem has been studied extensively with the most common method being ordinary least squares (OLS) which can be written as</p>
 
-\[\mathbf{\hat x}_{\text{OLS}} = \argmin_{\mathbf{x}} \| \mathbf{A x - y}\|^2,\]
+\[\mathbf{\hat x}_{\text{OLS}} = \text{argmin}_{\mathbf{x}} \| \mathbf{A x - y}\|^2,\]
 
-<p>and is the maximum likelihood estimator (MLE) for $\mathbf{x}$ when $\boldsymbol{\eta} = \mathbf{y-A x} \sim \mathcal{N} (\boldsymbol{0}, \sigma^2 \mathbf{I})$. An enticing feature of OLS is that it has a closed form solution given by $\mathbf{\hat x}<em>{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dag \mathbf{A}^T \mathbf{y}$ where $\dag$ denotes the Moore-Penrose psuedo-inverse. Unfortunately, the method is known to suffer from poor conditioning. There are other formulations such as $\min</em>{\mathbf{x}} | \mathbf{A x - y} |<em>{\infty}$ (minimax regression) or $\min</em>{\mathbf{x}} | \mathbf{A x - y} |_1$ (least deviation regression) that coincide with the MLEs for uniform and Laplacian noise, respectively. This relationship between regression and MLE for different noise models suggests using MLE to infer model parameters in more complicated settings.</p>
+<p>and is the maximum likelihood estimator (MLE) for \(\mathbf{x}\) when \(\boldsymbol{\eta} = \mathbf{y-A x} \sim \mathcal{N} (\boldsymbol{0}, \sigma^2 \mathbf{I})\). An enticing feature of OLS is that it has a closed form solution given by 
+\(\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dagger \mathbf{A}^T \mathbf{y}\) where \(\dagger\) denotes the Moore-Penrose psuedo-inverse. Unfortunately, the method is known to suffer from poor conditioning. There are other formulations such as \(\min_{\mathbf{x}} \| \mathbf{A x - y} \|_{\infty}\) (minimax regression) or \(\min_{\mathbf{x}} \| \mathbf{A x - y} \|_1\) (least deviation regression) that coincide with the MLEs for uniform and Laplacian noise, respectively. This relationship between regression and MLE for different noise models suggests using MLE to infer model parameters in more complicated settings.</p>
 
 <h1 id="uncertain-design-matrix">Uncertain design matrix</h1>
 
-<p>All the above problems make the strong and often unrealistic assumption that the design matrix or operator $\mathbf{A}$ is known with certainty. Typical causes of operator uncertainty are sampling error, measurement error, human error, modeling error, or rounding error. A classical method for addressing this uncertainty is by using total least squares (TLS) which solves the problems</p>
+<p>All the above problems make the strong and often unrealistic assumption that the design matrix or operator \(\mathbf{A}\) is known with certainty. Typical causes of operator uncertainty are sampling error, measurement error, human error, modeling error, or rounding error. A classical method for addressing this uncertainty is by using total least squares (TLS) which solves the problems</p>
 
 \[\min_{\mathbf{x}, \boldsymbol{\eta, \Delta}}  \quad \big\| [\boldsymbol{ \Delta, \ \ \eta}] \big\|^2_F \quad \text{subject to} \quad  (\mathbf{A} + \boldsymbol{\Delta}) \mathbf{x = y} + \boldsymbol{\eta}\]
 
-<p>and has the solution $\mathbf{\hat x}<em>{\text{TLS}} = (\mathbf{A}^T \mathbf{A} - \sigma</em>{n+1}^2 \mathbf{I})^\dag \mathbf{A}^T \mathbf{y}$ where $\sigma_{n+1}$ is the smallest singular value of the matrix $[\mathbf{A, y}]$. Unfortunately, the TLS solution is even worse condition that OLS. There is also an implicit assumption of Gaussian uncertainty in TLS as well which might be undesirable.</p>
+<p>and has the solution \(\mathbf{\hat x}_{\text{TLS}} = (\mathbf{A}^T \mathbf{A} - \sigma_{n+1}^2 \mathbf{I})^\dagger \mathbf{A}^T \mathbf{y}\) where \(\sigma_{n+1}\) is the smallest singular value of the matrix \([\mathbf{A, y}]\). Unfortunately, the TLS solution is even worse condition that OLS. There is also an implicit assumption of Gaussian uncertainty in TLS as well which might be undesirable.</p>
 
-<p>We consider the general case where the design matrix $\mathbf{A}$ is a random variable (not necessarily Gaussian) as well. To amplify this fact, we change the design matrix to be a random $\mathbf G$ instead of a fixed $\mathbf A$. MLE regression problems rely on knowledge of the vector $\mathbf y$’s joint probability density function (PDF). Note that each component of $\mathbf y$ in the generative model is the sum of scaled random variables, i.e., $y_i = \mathbf g_i^T \mathbf x + \eta_i = \sum_{i=1}^n G_{ij}x_j + \eta_i$ where $\mathbf g_i^T$ is the $i^\text{th}$ row of $\mathbf G$ and subscripts denote the component of the corresponding vector. Despite the innocuous form, sums of random variables are difficult to work with: individual PDFs must be convolved to obtain a PDF for their sum. For general noise models, forming an exact MLE is intractable and necessitates alternate techniques for solving the MLE problem.</p>
+<p>We consider the general case where the design matrix \(\mathbf{A}\) is a random variable (not necessarily Gaussian) as well. To amplify this fact, we change the design matrix to be a random \(\mathbf G\) instead of a fixed \(\mathbf A\). MLE regression problems rely on knowledge of the vector \(\mathbf y\)’s joint probability density function (PDF). Note that each component of \(\mathbf y\) in the generative model is the sum of scaled random variables, i.e., \(y_i = \mathbf g_i^T \mathbf x + \eta_i = \sum_{i=1}^n G_{ij}x_j + \eta_i\) where \(\mathbf g_i^T\) is the \(i^\text{th}\) row of \(\mathbf G\) and subscripts denote the component of the corresponding vector. Despite the innocuous form, sums of random variables are difficult to work with: individual PDFs must be convolved to obtain a PDF for their sum. For general noise models, forming an exact MLE is intractable and necessitates alternate techniques for solving the MLE problem.</p>
 
 <h1 id="approximate-maximum-likelihood-estimation">Approximate maximum likelihood estimation</h1>
 
-<p>To avoid the difficulties associated with convolving many densities, we use properties of moment generating functions (which we denote by $M_A(t)$ for a random variable $A$), then draw on ideas from complex analysis by using the saddle point approximation to estimate a density for $\mathbf y$.</p>
+<p>To avoid the difficulties associated with convolving many densities, we use properties of moment generating functions (which we denote by \(M_A(t)\) for a random variable \(A\)), then draw on ideas from complex analysis by using the saddle point approximation to estimate a density for \(\mathbf y\).</p>
 
-<p>The saddle point method or [method of steepest descent]](https://en.wikipedia.org/wiki/Method_of_steepest_descent) is a generalization of Laplace’s method and was first used in statistics by Daniels in his seminal paper<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> to estimate the PDF of sample means. An accessible overview of the method for the purposes here was written by <a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.1999.10474463?casa_token=WdBajCdgWu8AAAAA%3ATfkJRURS_IiM34aU321ekY6n3JTeiB80j9FpZxZWkqC2GpyI_fYfghhyDu1qhF_BfwgvTKLgvJZJ&amp;">Goutis and Casellas</a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. Assuming the elements of $\mathbf G$ and $\boldsymbol \eta$ are independent and that their distributions are known as $\mathcal  P_{\mathbf G}$ and $\mathcal  P_{\boldsymbol \eta}$, respectively, we can write the approximate density as</p>
+<p>The saddle point method or <a href="https://en.wikipedia.org/wiki/Method_of_steepest_descent">method of steepest descent</a> is a generalization of Laplace’s method and was first used in statistics by Daniels in his seminal paper<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> to estimate the PDF of sample means. An accessible overview of the method for the purposes here was written by <a href="https://www.tandfonline.com/doi/abs/10.1080/00031305.1999.10474463?casa_token=WdBajCdgWu8AAAAA%3ATfkJRURS_IiM34aU321ekY6n3JTeiB80j9FpZxZWkqC2GpyI_fYfghhyDu1qhF_BfwgvTKLgvJZJ&amp;">Goutis and Casellas</a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. Assuming the elements of \(\mathbf G\) and \(\boldsymbol \eta\) are independent and that their distributions are known as \(\mathcal  P_{\mathbf G}\) and \(\mathcal  P_{\boldsymbol \eta}\), respectively, we can write the approximate density as</p>
 
 \[p(\mathbf y \, | \, \mathbf x, \mathcal  P_{\mathbf G},\mathcal  P_{\boldsymbol \eta}) \approx \prod_{i=1}^m \left[ \left(2\pi \, K_{\mathbf g_i^T \mathbf x+ \eta_i}''(t_i)\right)^{-1/2}\right]  \ \exp\left\{ \sum_{i=1}^m K_{\mathbf g_i^T \mathbf x+ \eta_i}(t_i) - t_i y_i\right\},\]
 
-<p>where $t_i$ is the solution $q_i(\mathbf x, t_i) = K_{\mathbf g_i^T \mathbf x + \eta_i}’(t_i) - y_i = 0$ and $K_{\mathbf g_i^T \mathbf x + \eta_i}(t_i) = \ln M_{\mathbf g_i^T \mathbf x + \eta_i}(t_i)$ is the <strong>cumulant generating function</strong> (CGF) of $y_i$. By taking the logarithm of the PDF and dropping unnecessary constants we quickly arrive at our element-wise approximate log-likelihood function</p>
+<p>where \(t_i\) is the solution \(q_i(\mathbf x, t_i) = K_{\mathbf g_i^T \mathbf x + \eta_i}'(t_i) - y_i = 0\) and \(K_{\mathbf g_i^T \mathbf x + \eta_i}(t_i) = \ln M_{\mathbf g_i^T \mathbf x + \eta_i}(t_i)\) is the <strong>cumulant generating function</strong> (CGF) of \(y_i\). By taking the logarithm of the PDF and dropping unnecessary constants we quickly arrive at our element-wise approximate log-likelihood function</p>
 
 \[\ell(\mathbf x) = \sum_{i=1}^m  \left[ \rule{0cm}{.75cm} \right.  K_{\eta_i}(t_i) \ +\  \left(\sum_{j=1}^n K_{G_{ij}}( t_i x_j) \right)
 \ -\  t_i y_i - \frac{1}{2} \ln\left( K''_{\eta_i} (t_i) + \sum_{j=1}^n K''_{G_{ij}}(t_i x_j) \right)  \left. \rule{0cm}{.75cm} \right].\]
@@ -313,13 +314,13 @@
 
 \[\ell(\mathbf x) = \boldsymbol 1^T \left( K_{\mathbf G \mathbf x+ \boldsymbol \eta}(\mathbf t) - \frac 1 2 \ln \left( K''_{\mathbf G \mathbf x + \boldsymbol \eta}(\mathbf t)   \right) \right) - \mathbf t^T \mathbf y,\]
 
-<p>where $\mathbf 1$ is a vector of ones and $\mathbf t$ is the solution to $\mathbf q(\mathbf x, \mathbf t) = K’<em>{\mathbf G \mathbf x + \boldsymbol \eta}(\mathbf t) - \mathbf y = \mathbf 0$ which can be solved with a bracketed root-finding algorithm. We use the notation that $K^{(i)}</em>{\mathbf G \mathbf x + \boldsymbol \eta}(\mathbf t) = [K^{(i)}<em>{\mathbf g_1^T \mathbf x + \eta_1}(t_1), \, \dots, K^{(i)}</em>{\mathbf g_m^T \mathbf x + \eta_m}(t_m)]^T$. We can cast the approximate MLE problem as</p>
+<p>where \(\mathbf 1\) is a vector of ones and \(\mathbf t\) is the solution to \(\mathbf q(\mathbf x, \mathbf t) = K'_{\mathbf G \mathbf x + \boldsymbol \eta}(\mathbf t) - \mathbf y = \mathbf 0\) which can be solved with a bracketed root-finding algorithm. We use the notation that \(K^{(i)}_{\mathbf G \mathbf x + \boldsymbol \eta}(\mathbf t) = [K^{(i)}_{\mathbf g_1^T \mathbf x + \eta_1}(t_1), \, \dots, K^{(i)}_{\mathbf g_m^T \mathbf x + \eta_m}(t_m)]^T\). We can cast the approximate MLE problem as</p>
 
-\[\argmax_{\mathbf x, \mathbf t} \quad \ell(\mathbf x, \mathbf t)\]
+\[\text{argmax}_{\mathbf x, \mathbf t} \quad \ell(\mathbf x, \mathbf t)\]
 
 \[\text{subject to} \quad K'_{\mathbf G \mathbf x+ \boldsymbol \eta}(\mathbf t) - \mathbf y= \boldsymbol 0.\]
 
-<p>Interestingly, there appears to be little effort made towards solving this problem for more that a few parameters in the literature. A contribution of this project is that we find an exact gradient for $\ell(\mathbf x)$ that can be used in ``off-the-shelf’’ first-order algorithms. Specifically, we have</p>
+<p>Interestingly, there appears to be little effort made towards solving this problem for more that a few parameters in the literature. A contribution of this project is that we find an exact gradient for \(\ell(\mathbf x)\) that can be used in ``off-the-shelf’’ first-order algorithms. Specifically, we have</p>
 
 \[\nabla_{\mathbf x} \ell = \frac{\partial \ell}{\partial \mathbf x}  - \left( \frac{\partial \ell}{\partial \mathbf t} \right) \left( \frac{\partial \boldsymbol q}{\partial \mathbf t} \right)^{-1}  \left( \frac{\partial \boldsymbol q}{\partial \mathbf x} \right).\]
 
@@ -333,7 +334,7 @@
 
 \[\frac{\partial \boldsymbol q}{\partial \mathbf x} \ \ = \ \   \frac{\partial}{\partial \mathbf x}  K'_{\mathbf G \mathbf x+ \boldsymbol \eta}(\mathbf t).\]
 
-<p>The symbol $\oslash$ denotes element-wise matrix division. Although these derivatives can typically be calculated by hand, it is advantageous to use automatic differentiation software if it is readily available.</p>
+<p>The symbol \(\oslash\) denotes element-wise matrix division. Although these derivatives can typically be calculated by hand, it is advantageous to use automatic differentiation software if it is readily available.</p>
 
 <p>Equipped with an approximate MLE function and a method for computing the gradient, we are capable of using a variety of first order methods to solve the regression problems subject to uncertain data. More details on this project can be found in our <a href="https://arxiv.org/pdf/2104.03307">preprint</a><sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>.</p>
 
@@ -471,23 +472,10 @@
 
 
 
+
 <script type="text/javascript" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<script type="text/x-mathjax-config">
-   MathJax.Hub.Config({
-     extensions: ["tex2jax.js"],
-     jax: ["input/TeX", "output/HTML-CSS"],
-     tex2jax: {
-       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-       processEscapes: true
-     },
-     "HTML-CSS": { availableFonts: ["TeX"] }
-   });
-</script>
-
 
 
   </body>
