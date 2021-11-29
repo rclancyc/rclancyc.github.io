@@ -6,7 +6,7 @@ header:
   caption: "Mammoth Hot Springs, Yellowstone NP"
 permalink: /projects/amle/
 ---
-# Generative model
+# Generative model 1
 
 An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of $\mathbf{A}$ and $\mathbf{y}$ and using the generative model
 
