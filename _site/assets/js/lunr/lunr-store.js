@@ -1,6 +1,6 @@
 var store = [{
         "title": "Approximate Maximum Likelihood Estimation",
-        "excerpt":"Generative model 1 An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of $\\mathbf{A}$ and...","categories": [],
+        "excerpt":"When the regressors used to fit a statistical model are uncertain, ordinary least squares (the classic regression workhorse) is no longer theoretically appropriate. Unfortunately, accounting for design matrix uncertainty with linear models is often intractable. In this project, we considered an approach based on the saddle point method which is...","categories": [],
         "tags": [],
         "url": "/projects/amle/",
         "teaser": null
@@ -29,8 +29,8 @@ var store = [{
         "url": "/projects/neuro/",
         "teaser": null
       },{
-        "title": " ",
-        "excerpt":"test  ","categories": [],
+        "title": "Robust Least Squares",
+        "excerpt":"This section is based on the work published in Signal Processing1. A preprint can be found here. Due to the limitations of classical methods, we approach the problem through the lens of robust optimization. The primary goal is to recover unknown parameters from a noisy observation and an uncertain linear...","categories": [],
         "tags": [],
         "url": "/projects/robustLS/",
         "teaser": null

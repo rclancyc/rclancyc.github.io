@@ -14,14 +14,14 @@ projects:
     children: 
       - title: "Robust Least Squares"
         url: /projects/robustLS/
-      - title: "Approximate maximum likelihood"
+      - title: "Approximate Maximum Likelihood"
         url: /projects/amle/
 
   - title: "Numerical Methods"
     children:
       - title: "Mixed Precision Solvers"
         url: /projects/trophy/
-      - title: "Hermite intepolation"
+      - title: "Hermite Intepolation"
         url: /projects/hermite/
       - title: "Error Bounds for Irregular Grids"
         url: /projects/errorbounds/

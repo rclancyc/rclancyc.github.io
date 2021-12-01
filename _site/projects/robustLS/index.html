@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>  Richard Clancy</title>
+<!-- begin _includes/seo.html --><title>Robust Least Squares - Richard Clancy</title>
 <meta name="description" content="Welcome to my personal website! You can find information about some of my projects, research interests, and past experiences.">
 
 
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Richard Clancy">
-<meta property="og:title" content="">
+<meta property="og:title" content="Robust Least Squares">
 <meta property="og:url" content="http://localhost:4000/projects/robustLS/">
 
 
@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-11-29T10:59:44-07:00">
+  <meta property="article:published_time" content="2021-12-01T00:07:42-07:00">
 
 
 
@@ -78,8 +78,6 @@
 <link rel="stylesheet" href="/assets/css/main.css">
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
-
-
 
 
 
@@ -157,7 +155,7 @@
     <div class="wrapper">
       <h1 id="page-title" class="page__title" itemprop="headline">
         
-          
+          Robust Least Squares
 
         
       </h1>
@@ -212,7 +210,7 @@
           
             <li><a href="/projects/robustLS/" class="active">Robust Least Squares</a></li>
           
-            <li><a href="/projects/amle/">Approximate maximum likelihood</a></li>
+            <li><a href="/projects/amle/">Approximate Maximum Likelihood</a></li>
           
         </ul>
         
@@ -228,7 +226,7 @@
           
             <li><a href="/projects/trophy/">Mixed Precision Solvers</a></li>
           
-            <li><a href="/projects/hermite/">Hermite intepolation</a></li>
+            <li><a href="/projects/hermite/">Hermite Intepolation</a></li>
           
             <li><a href="/projects/errorbounds/">Error Bounds for Irregular Grids</a></li>
           
@@ -260,7 +258,7 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="">
+    <meta itemprop="headline" content="Robust Least Squares">
     <meta itemprop="description" content="">
     
     
@@ -270,7 +268,44 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>test</p>
+        <p>This section is based on the work published in <a href="https://www.sciencedirect.com/science/article/abs/pii/S0165168420302541">Signal Processing</a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. A preprint can be found <a href="https://arxiv.org/pdf/2003.12004">here</a>.</p>
+
+<p>Due to the limitations of classical methods, we approach the problem through the lens of robust optimization. The primary goal is to recover unknown parameters from a noisy observation and an uncertain linear operator. In particular, our mathematical model for robust least squares is</p>
+
+\[\min_{\mathbf x} \, \left\{ \max_{ \boldsymbol \Delta  \in \,  \mathcal U }\; \| (\mathbf A+ \boldsymbol \Delta ) \mathbf x - \mathbf y \|^2 \right\}\]
+
+<p>which we refer to as our robust optimization (RO) problem. The Euclidean norm is denoted by \(\| \cdot \|\) and \(\mathcal{U}\) is the uncertainty set from which perturbations in \(\mathbf A\) are drawn. The above RO formulation is motivated by two situations. In both cases, we let \(\bar{\mathbf A}\) and \(\bar{\mathbf x}\) represent the <em>true and unknown</em> data matrix and parameter vector, respectively. We model \(\mathbf y = \bar{ \mathbf A} \bar{ \mathbf x} + \boldsymbol \eta\), with \(\boldsymbol  \eta\) i.i.d. Gaussian, and we only have knowledge of \(\mathbf A = \bar{ \mathbf A }- \boldsymbol \Delta\). We don’t know \(\boldsymbol \Delta\) explicitly but can make inferences based on the problem. In the first situation, we consider a data matrix subject to quantization or round-off error. Suppose the observed matrix \(\mathbf A\) has elements rounded to the hundredth place. Our uncertainty set can be written as \(\mathcal U= \{ \boldsymbol \Delta  \in \mathbb R^{m \times n } : \| \boldsymbol \Delta \|_{\infty} \le \delta \}\) with \(\delta = 0.005\). If \(\mathbf A_{i,j} = 0.540\), then we know the true \(\bar {\mathbf A}_{i,j} \in (0.535,\, 0.545]\), hence \(\boldsymbol \Delta _{i,j} \in (-0.005, 0.005]\). The norm \(\| \cdot \|_{\infty}\) takes the maximum absolute value of any element in the matrix.</p>
+
+<p>The second problem considers a data matrix with uncertainty proportional to the magnitude of each entry, i.e. 
+\(\mathcal U = \{ \boldsymbol \Delta  \in \mathbb R^{m \times n} : \boldsymbol \Delta_{i,j} \in (-p |\mathbf A_{i,j}|, p | \mathbf A_{i,j}| ] \}\). Here, \(p\) denotes a proportionality constant. Data subject to \(\pm 1 \%\) uncertainty would have \(p = 0.01\). The two cases cover the effects of finite-precision in fixed and floating point representations, respectively. In both problems, the uncertainty sets are specified element-wise allowing us to decouple along rows.</p>
+
+<p>In this project, we consider box constraints over entries of the data matrix. Our main contribution is the formulation of a robust objective to handle quantization and floating point error in least squares problems and the presentation of methods to solve it. Although the proposed method requires selection of an uncertainty parameter, it is chosen in a natural and theoretically appropriate way based on the observed extent of quantization. This is in contrast to ridge regression and MLE based methods that require involved parameter tuning or <em>a priori</em> knowledge of the probability distributions from which model uncertainty is drawn. We anticipate our method to be most effective under moderate to heavy quantization where fidelity loss is greater than \(0.1\%\).</p>
+
+<p>To solve the problem, it must be tractable. In our paper, we show that the following are equivalent</p>
+
+\[\min_{\mathbf x} \bigg\{ \  \underset{f(\mathbf x)}{\underbrace{ \,  \max_{ |\boldsymbol \Delta | \le \mathbf D}\; \| (\mathbf A+ \boldsymbol \Delta ) \mathbf x - \mathbf y \|^2 }} \ \bigg\} \\
+\ \qquad \qquad   \Updownarrow \\
+\min_{\mathbf x} \left\{ \big\| \mathbf A \mathbf x-\mathbf y \big\|^2 + 2 \langle \, | \mathbf A \mathbf x- \mathbf y|, \mathbf D|\mathbf x| \, \rangle + \big\| \, \mathbf D| \mathbf x| \, \big\|^2 \right \}\]
+
+<p>where \(|\cdot |\) is the absolute value acting component-wise on vectors/matrices and \(\mathbf D\) is a matrix filled with positive entries constraining the elements of \(\boldsymbol  \Delta\).</p>
+
+<p>By letting \(\mathbf D = \delta \mathbf 1_m^{} \mathbf 1_n^T\), we recover the fixed-point error uncertainty set and \(f( \mathbf x)\) simplifies to</p>
+
+\[f( \mathbf x) = \bigg\{ \|\mathbf A \mathbf x- \mathbf y \|^2 + 2 \delta \|\mathbf x\|_1 \| \mathbf A \mathbf x- \mathbf y \|_1 + m \delta^2 \| \mathbf x \|_1^2 \bigg \}.\]
+
+<p>A challenge to overcome is that \(f(\mathbf x)\) is not differentiable and finding elements of the subgradient can be challenging. Another contribution is that we provide an element of the subgradient that is easy to compute for all \(\mathbf x \in \mathbb R^n\). We do so by recognizing that since \(\| (\mathbf A+ \boldsymbol \Delta ) \mathbf x - \mathbf y \|^2\) is convex in \(\mathbf x\) for fixed \(\boldsymbol  \Delta\) and the maximum of convex functions is also convex, then \(f(\mathbf x)\) is convex as well. The conditions of <a href="https://en.wikipedia.org/wiki/Danskin's_theorem">Danskin’s theorem</a> are met in our problem which gives an element of the subgradient,</p>
+
+\[f'(\mathbf x) := 2 (\mathbf A+\boldsymbol \Delta _{\mathbf x})^T\big[(\mathbf A+\boldsymbol \Delta _{\mathbf x}) \mathbf x - \mathbf y \big] \  \in \ \partial f(\mathbf x),\]
+
+<p>where \(\boldsymbol \Delta _{\mathbf x} = \mathbf D \odot \text{sign}[ \mathbf x \, (\mathbf A \mathbf x - \mathbf y)^T]\) is the optimal \(\boldsymbol \Delta\) for a given \(\mathbf x\). The symbol \(\odot\) denotes the Hadamard or element-wise product. Equipped with a subgradient, we can efficiently solve the problem.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Becker, Stephen, and Richard J. Clancy. “Robust least squares for quantized data matrices.” Signal Processing 176 (2020): 107711. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
         
       </section>
@@ -287,7 +322,7 @@
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?text=+%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2FrobustLS%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=Robust+Least+Squares%20http%3A%2F%2Flocalhost%3A4000%2Fprojects%2FrobustLS%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fprojects%2FrobustLS%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
@@ -393,23 +428,10 @@
 
 
 
+
 <script type="text/javascript" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
-
-<script type="text/x-mathjax-config">
-   MathJax.Hub.Config({
-     extensions: ["tex2jax.js"],
-     jax: ["input/TeX", "output/HTML-CSS"],
-     tex2jax: {
-       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-       processEscapes: true
-     },
-     "HTML-CSS": { availableFonts: ["TeX"] }
-   });
-</script>
-
 
 
   </body>
