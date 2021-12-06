@@ -24,7 +24,7 @@ var store = [{
         "teaser": null
       },{
         "title": " ",
-        "excerpt":"test  ","categories": [],
+        "excerpt":"This section is based our work published in Physics in Medicine in Biology1. A preprint can be found here. Background It is a grotesque understatement to say that the human brain is complex. Although we are a long way from a complete understanding of the brain, we understand some of...","categories": [],
         "tags": [],
         "url": "/projects/neuro/",
         "teaser": null
