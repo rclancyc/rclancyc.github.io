@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Richard Clancy
+title: Richard J Clancy
 email: richard.clancy@colorado.edu
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to my personal website! You can find information about some of my projects, research interests, and past experiences.
+  #Welcome to my personal website! You can find information about some of my projects, research interests, and past experiences.
 #twitter_username: username
 github_username: rclancyc
 minimal_mistakes_skin: default

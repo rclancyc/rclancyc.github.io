@@ -7,7 +7,7 @@ header:
   overlay_image: /assets/images/bluewaters.jpg
   caption: "St. Croix, USVI"
 ---
-Welcome to my personal website! I am fifth year PhD student in applied math at the [University of Colorado at Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus primarily on numerical optimization, inverse problems, and regression subject to uncertain data. Although this website is under construction, you can find information about my research interests and a few of the projects I've worked on over the years. More will be added over time. 
+Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado at Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus primarily on numerical optimization, inverse problems, and regression subject to uncertain data. Although this website is under construction, you can find information about my research interests and a few of the projects I've worked on over the years. More will be added over time. 
 
 __I plan to graduate in May-August 2022 and will be on the job market!__
 
@@ -19,7 +19,7 @@ __I plan to graduate in May-August 2022 and will be on the job market!__
 - I presented our recent work on uncertain regression problems at SIAM OPT, Spokane, WA (remote). Slides can be found [here](/assets/documents/siam_opt21.pdf).
 
 ### May 2021
-- For the summer, I will be splitting my time between [Argonne National Laboratory](https://www.anl.gov/) as a Givens Associate and [Los Alamos National Laboratory](https://www.lanl.gov). A central focus of my work will be on efficient computation using mixed precision floating point arithmetic and its limitations in scientific computing.
+- For the summer, I will be splitting time between [Argonne National Laboratory](https://www.anl.gov/) as a Givens Associate and [Los Alamos National Laboratory](https://www.lanl.gov). A central focus of my work will be on efficient computation using mixed precision floating point arithmetic and its limitations in scientific computing.
 
 ### April 2021
 - I successfully passed my comprehensive exams! Thank you to my committee, Stephen Becker, Svenja Knappe, Jem Corcoran, Emiliano Dall'Anese , and Will Kleiber.  

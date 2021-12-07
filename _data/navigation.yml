@@ -1,8 +1,8 @@
 main:
   - title: "Projects"
     url: /projects/
-  - title: "Experience"
-    url: /experience/
+  - title: "Publications"
+    url: /publications/
   - title: "About"
     url: /about/
 
@@ -10,19 +10,15 @@ main:
 # sidebar for portfolio
 # here, I will a title of the index pages, so projects (in which I have markdowns)
 projects:
-  - title: "Statistics and Regression"
+  - title: "Statistics"
     children: 
-      - title: "Robust Least Squares"
-        url: /projects/robustLS/
-      - title: "Approximate Maximum Likelihood"
-        url: /projects/amle/
+      - title: "Uncertain regression"
+        url: /projects/regression/
 
   - title: "Numerical Methods"
     children:
-      - title: "Mixed Precision Solvers"
-        url: /projects/trophy/
-      - title: "Hermite Intepolation"
-        url: /projects/hermite/
+      - title: "Trust Region Methods"
+        url: /projects/trust/
       - title: "Error Bounds for Irregular Grids"
         url: /projects/errorbounds/
 

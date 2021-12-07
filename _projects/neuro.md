@@ -7,7 +7,7 @@ header:
 permalink: /projects/neuro/
 toc: true
 ---
-This section is based our work published in [_Physics in Medicine in Biology_](https://iopscience.iop.org/article/10.1088/1361-6560/ac18fb)[^1]. A preprint can be found [here](https://arxiv.org/pdf/2105.02316).
+This section is based our work published in [_Physics in Medicine in Biology_](https://iopscience.iop.org/article/10.1088/1361-6560/ac18fb)[^1]. A preprint can be found [here](/assets/documents/opm-for-meg.pdf).
 
 # Background
 
@@ -96,7 +96,7 @@ $$
 where $$\boldsymbol{1}$$ is the vector of ones. 
 This approximation is an affine function of $$\mathbf q$$ paving the way for a simplified localization algorithm. Upon testing, we found that the difference between our approximation and the precise forward model, i.e., $$\big| f_i - \|\mathbf a + \mathbf b_i \| \big|$$, was below the noise floor used and therefore negligible. By using a reference sensor that picks up the background field $$\mathbf a$$ away from the biomagnetic sources, we can subtract out the ambient field. This is a basic form of gradiometry. For ambient sources that vary more quickly over shorter length scales, more complex gradiometry can be applied. With a forward model and data at our disposal, we can now formulate the optimization problem to localize a dipole.
 
-# Optimization problem and algorithms
+# Optimization Problem and Algorithms
 Given the forward model $$\mathbf f $$ from above, the goal is to find a dipole $$(\mathbf p, \mathbf q)$$ that best explains observed MEG data $$\mathbf y $$. Here, we assume that $$\mathbf a$$ has been removed from the signal and that 
 
 $$\mathbf A = \begin{bmatrix}  \hat{\mathbf a}^T \mathbf L(\mathbf r_1, \mathbf p) \\  \hat{\mathbf a}^T \mathbf L(\mathbf r_2, \mathbf p)  \\ \vdots  \\  \hat{\mathbf a}^T \mathbf L(\mathbf r_M, \mathbf p)  \end{bmatrix}$$

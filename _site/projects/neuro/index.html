@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-12-06T01:19:07-07:00">
+  <meta property="article:published_time" content="2021-12-07T01:09:11-07:00">
 
 
 
@@ -117,7 +117,7 @@
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/projects/">Projects</a>
             </li><li class="masthead__menu-item">
-              <a href="/experience/">Experience</a>
+              <a href="/publications/">Publications</a>
             </li><li class="masthead__menu-item">
               <a href="/about/">About</a>
             </li></ul>
@@ -202,15 +202,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Statistics and Regression</span>
+          <span class="nav__sub-title">Statistics</span>
         
 
         
         <ul>
           
-            <li><a href="/projects/robustLS/">Robust Least Squares</a></li>
-          
-            <li><a href="/projects/amle/">Approximate Maximum Likelihood</a></li>
+            <li><a href="/projects/regression/">Uncertain regression</a></li>
           
         </ul>
         
@@ -224,9 +222,7 @@
         
         <ul>
           
-            <li><a href="/projects/trophy/">Mixed Precision Solvers</a></li>
-          
-            <li><a href="/projects/hermite/">Hermite Intepolation</a></li>
+            <li><a href="/projects/trust/">Trust Region Methods</a></li>
           
             <li><a href="/projects/errorbounds/">Error Bounds for Irregular Grids</a></li>
           
@@ -271,12 +267,12 @@
           <aside class="sidebar__right ">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#background">Background</a></li><li><a href="#new-possibilities-with-new-sensors">New Possibilities with New Sensors</a></li><li><a href="#project-scope">Project Scope</a></li><li><a href="#forward-model">Forward Model</a></li><li><a href="#optimization-problem-and-algorithms">Optimization problem and algorithms</a></li></ul>
+              <ul class="toc__menu"><li><a href="#background">Background</a></li><li><a href="#new-possibilities-with-new-sensors">New Possibilities with New Sensors</a></li><li><a href="#project-scope">Project Scope</a></li><li><a href="#forward-model">Forward Model</a></li><li><a href="#optimization-problem-and-algorithms">Optimization Problem and Algorithms</a></li></ul>
 
             </nav>
           </aside>
         
-        <p>This section is based our work published in <a href="https://iopscience.iop.org/article/10.1088/1361-6560/ac18fb"><em>Physics in Medicine in Biology</em></a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. A preprint can be found <a href="https://arxiv.org/pdf/2105.02316">here</a>.</p>
+        <p>This section is based our work published in <a href="https://iopscience.iop.org/article/10.1088/1361-6560/ac18fb"><em>Physics in Medicine in Biology</em></a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. A preprint can be found <a href="/assets/documents/opm-for-meg.pdf">here</a>.</p>
 
 <h1 id="background">Background</h1>
 
@@ -352,7 +348,7 @@ Thus for an MEG array with \(M\) sensors at points \(\mathbf r_1, \mathbf r_2, .
 <p>where \(\boldsymbol{1}\) is the vector of ones. 
 This approximation is an affine function of \(\mathbf q\) paving the way for a simplified localization algorithm. Upon testing, we found that the difference between our approximation and the precise forward model, i.e., \(\big| f_i - \|\mathbf a + \mathbf b_i \| \big|\), was below the noise floor used and therefore negligible. By using a reference sensor that picks up the background field \(\mathbf a\) away from the biomagnetic sources, we can subtract out the ambient field. This is a basic form of gradiometry. For ambient sources that vary more quickly over shorter length scales, more complex gradiometry can be applied. With a forward model and data at our disposal, we can now formulate the optimization problem to localize a dipole.</p>
 
-<h1 id="optimization-problem-and-algorithms">Optimization problem and algorithms</h1>
+<h1 id="optimization-problem-and-algorithms">Optimization Problem and Algorithms</h1>
 <p>Given the forward model \(\mathbf f\) from above, the goal is to find a dipole \((\mathbf p, \mathbf q)\) that best explains observed MEG data \(\mathbf y\). Here, we assume that \(\mathbf a\) has been removed from the signal and that</p>
 
 \[\mathbf A = \begin{bmatrix}  \hat{\mathbf a}^T \mathbf L(\mathbf r_1, \mathbf p) \\  \hat{\mathbf a}^T \mathbf L(\mathbf r_2, \mathbf p)  \\ \vdots  \\  \hat{\mathbf a}^T \mathbf L(\mathbf r_M, \mathbf p)  \end{bmatrix}\]
@@ -423,7 +419,7 @@ Hence, we use pair \((\mathbf p_o, \mathbf q_o^*)\) as a warm start for a contin
 ">Previous</a>
     
     
-      <a href="/projects/robustLS/" class="pagination--pager" title="Robust Least Squares
+      <a href="/projects/regression/" class="pagination--pager" title="Uncertain Regression
 ">Next</a>
     
   </nav>
