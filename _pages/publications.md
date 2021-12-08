@@ -1,7 +1,5 @@
 ---
-theme: jekyll-slate
-layout: splash
-title: "Publications and Talks"
+title: "Publications and Presentations"
 header:
   overlay_image: /assets/images/flatirons.jpg
 permalink: /publications/
