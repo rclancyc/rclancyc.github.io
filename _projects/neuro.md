@@ -1,9 +1,9 @@
 ---
 title: " "
 header:
-  overlay_image: /assets/images/denver_skyline.jpg
+  overlay_image: /assets/images/stcroix2.jpg
   #overlay_image: https://commons.wikimedia.org/wiki/File:Magnetoencephalography.svg#/media/File:Magnetoencephalography.svg
-  caption: "Denver, CO"
+  caption: "Buck Island, USVI"
 permalink: /projects/neuro/
 toc: true
 ---

@@ -3,6 +3,8 @@ main:
     url: /projects/
   - title: "Publications"
     url: /publications/
+  - title: "CV"
+    url: /assets/documents/CV.pdf
   - title: "About"
     url: /about/
 
