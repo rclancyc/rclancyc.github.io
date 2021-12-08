@@ -40,9 +40,9 @@ __Trust region algorithm__
         - If $$\rho_k > \eta_{great}$$
             - Expand trust region: $$\Delta_{k+1} = \gamma_{inc} \Delta_k$$
         - Else 
-            - Use last iterate: $$\mathbf{x_{k+1} = x_k}$$
             - Keep trust region fixed: $$\Delta_{k+1} = \Delta_k$$
       - Else
+        - Use last iterate: $$\mathbf{x_{k+1} = x_k}$$
         - Shrink trust region: $$\Delta_{k+1} = \gamma_{dec} \Delta_k$$
 
 
