@@ -1,5 +1,5 @@
 ---
-title: " "
+title: "Brain Imaging"
 header:
   overlay_image: /assets/images/stcroix2.jpg
   #overlay_image: https://commons.wikimedia.org/wiki/File:Magnetoencephalography.svg#/media/File:Magnetoencephalography.svg
