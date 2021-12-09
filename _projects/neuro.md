@@ -7,7 +7,7 @@ header:
 permalink: /projects/neuro/
 toc: true
 ---
-This section is based our work published in [_Physics in Medicine in Biology_](https://iopscience.iop.org/article/10.1088/1361-6560/ac18fb)[^1]. A preprint can be found [here](/assets/documents/opm-for-meg.pdf).
+This section is based on our work published in [_Physics in Medicine in Biology_](https://iopscience.iop.org/article/10.1088/1361-6560/ac18fb)[^1]. A preprint can be found [here](/assets/documents/opm-for-meg.pdf).
 
 # Background
 
@@ -107,7 +107,7 @@ $$
     \min_{\mathbf p,\mathbf q} \ \| \mathbf f (\mathbf p, \mathbf q) - \mathbf y  \|^2 =\min_{\mathbf p, \mathbf q} \ \|\mathbf A (\mathbf p) \, \mathbf q - \mathbf y  \|^2
 $$
 
-which is convex in $$\mathbf q$$ but not in $$\mathbf p$$. To address non-convexity, we break the problem into two parts as outlined in \cite{ilmoniemi2019brain}. First, we find a point that is in the global optimum's basin of attraction as a warm start, then employ an iterative nonlinear solver.
+which is convex in $$\mathbf q$$ but not in $$\mathbf p$$. To address non-convexity, we break the problem into two parts as outlined in _Brain Signals_[^5]. First, we find a point that is in the global optimum's basin of attraction as a warm start, then employ an iterative nonlinear solver.
 
 For the warm start, we grid the variable $$\mathbf p$$ over the sphere's interior at $$K$$ locations. For each grid value of $$\mathbf p$$, the optimal value of $$\mathbf q$$ is easily found by solving an ordinary least squares problem, so $$\mathbf q$$ does not need to be discretized. In particular, at a fixed grid point $$\mathbf p = \mathbf p_k$$ with $$k \in\{1,\ldots,K\}$$, the optimal solution $$\mathbf q_k^*$$ to the above optimization problem is 
 
@@ -116,10 +116,12 @@ $$
 $$
 
 After finding location/moment least square pairs, $$(\mathbf p_k, \mathbf q_k^*)$$, for all $$K$$ discrete locations, the optimal index $$o$$ is given by
-\begin{equation}
+
+$$
     o = \underset{k\in\{1,\ldots,K\}}{\text{argmin}} \ \|\mathbf A (\mathbf p_k) \, \mathbf q_k^* - \mathbf y_g \|^2.
-\end{equation}
-Hence, we use pair $$(\mathbf p_o, \mathbf q_o^*)$$ as a warm start for a continuous optimization algorithm. In our simulations we used L-BFGS[^5] as the continuous optimization algorithm, which is a quasi-Newton method, although others could be used. L-BFGS iterates through the space of possible values for $$(\mathbf p, \mathbf q)$$ to find a fit minimizing residual error.
+$$
+
+Hence, we use pair $$(\mathbf p_o, \mathbf q_o^*)$$ as a warm start for a continuous optimization algorithm. In our simulations we used L-BFGS[^6] as the continuous optimization algorithm, which is a quasi-Newton method, although others could be used. L-BFGS iterates through the space of possible values for $$(\mathbf p, \mathbf q)$$ to find a fit minimizing residual error.
 
 
 [^1]: Clancy, Richard J., et al. "A study of scalar optically-pumped magnetometers for use in magnetoencephalography without shielding." Signal Processing 66 (2021): 175030.
@@ -130,4 +132,6 @@ Hence, we use pair $$(\mathbf p_o, \mathbf q_o^*)$$ as a warm start for a contin
 
 [^4]: Mosher, John C., Richard M. Leahy, and Paul S. Lewis. "EEG and MEG: forward solutions for inverse methods." IEEE Transactions on biomedical engineering 46.3 (1999): 245-259.
 
-[^5]: Liu, Dong C., and Jorge Nocedal. "On the limited memory BFGS method for large scale optimization." Mathematical programming 45.1 (1989): 503-528.
+[^5]: Ilmoniemi, Risto J., and Jukka Sarvas. Brain signals: physics and mathematics of MEG and EEG. Mit Press, 2019.
+
+[^6]: Liu, Dong C., and Jorge Nocedal. "On the limited memory BFGS method for large scale optimization." Mathematical programming 45.1 (1989): 503-528.

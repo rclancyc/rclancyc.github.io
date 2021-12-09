@@ -10,18 +10,18 @@ toc: true
 
 # Background
 
-When the regressors used to fit a statistical model are uncertain, ordinary least squares (the classic regression workhorse) is no longer theoretically appropriate. Unfortunately, accounting for design matrix uncertainty with linear models is often intractable. In this project, we considered an approach based on the saddle point method which is tractable and offers improved estimators. In particular, we derived an "approximate maximum likelihood function" and optimized it to find the parameters that best fit an uncertain design matrix.
+When the regressors used to fit a statistical model are uncertain, ordinary least squares (the classic regression workhorse) is no longer theoretically appropriate. Unfortunately, accounting for design matrix uncertainty with linear models is often intractable. In what follows we consider two approachs, one based on robust optimization and the other on an "approximate" maximum likelihood framework.
 
 
 ## Generative model
 
-An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of $$\mathbf{A}$$ and $$\mathbf{y}$$ and using the generative model
+An exceptionally useful technique in engineering and the sciences is to model a response variable as an affine function of related input data. Indeed, simple linear regression serves as an introductory example of model fitting for high school students across the country. Assuming knowledge of $$\mathbf{A} \in \mathbb{R}^{m \times n}$$ and $$\mathbf{y} \in \mathbb{R}^m$$ and using the generative model
 
 $$
-\mathbf{y} = \mathbf{A} \mathbf{x} + \boldsymbol{\eta}, \ \ \text{with} \ \ \mathbf{A} \in \mathbb{R}^{m \times n}, \ \mathbf{x} \in \mathbb{R}^n, \ \text{and} \ \mathbf{y}, \boldsymbol{\eta} \in \mathbb{R}^m,
+\mathbf{y} = \mathbf{A} \mathbf{x} + \boldsymbol{\eta},
 $$
 
-the goal of regression is to infer the model parameters $$\mathbf{x}$$ that best explain the observations $$\mathbf{y}$$. We focus on the over-determined case where $$m>n$$. In so using this model to fit data, we can easily understand the relationship between regressors and response variables in a simple and intuitive way.
+with $$\mathbf{x} \in \mathbb{R}^n$$ and $$\boldsymbol{\eta} \in \mathbb{R}^m$$, the goal of regression is to infer the model parameters $$\mathbf{x}$$ that best explain the observations $$\mathbf{y}$$. We focus on the over-determined case where $$m>n$$. In so using this model to fit data, we can easily understand the relationship between regressors and response variables in a simple and intuitive way.
 
 ## Ordinary least squares
 This problem has been studied extensively with the most common method being ordinary least squares (OLS) which can be written as
@@ -38,8 +38,10 @@ First, the problem is often poorly conditioned which a numerical analysts way of
  A classical method for addressing this uncertainty is by using total least squares (TLS) which solves the problems
 
 $$
-\min_{\mathbf{x}, \boldsymbol{\eta, \Delta}}  \quad \big\| [\boldsymbol{ \Delta, \ \ \eta}] \big\|^2_F \quad \text{subject to} \quad  (\mathbf{A} + \boldsymbol{\Delta}) \mathbf{x = y} + \boldsymbol{\eta}
+\min_{\mathbf{x}, \boldsymbol{\eta, \Delta}}  \quad \big\| [\boldsymbol{ \Delta, \ \ \eta}] \big\|^2_F \quad \\
+\text{subject to} \quad  (\mathbf{A} + \boldsymbol{\Delta}) \mathbf{x = y} + \boldsymbol{\eta}, \\
 $$
+
 
 and has the solution $$\mathbf{\hat x}_{\text{TLS}} = (\mathbf{A}^T \mathbf{A} - \sigma_{n+1}^2 \mathbf{I})^\dagger \mathbf{A}^T \mathbf{y}$$ where $$\sigma_{n+1}$$ is the smallest singular value of the matrix $$[\mathbf{A, y}]$$. $$F$$ denotes the Frobenius norm. Unfortunately, the TLS solution is even worse condition that OLS. There is also an implicit assumption of Gaussian uncertainty in TLS as well which might be undesirable. In what follows, we consider two approaches for handling uncertainty in the design matrix. In particular, we focus on a robust least squares formulation and another method that forms and optimizes an approximate maximum likelihood function.
 

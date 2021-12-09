@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-12-08T00:41:16-07:00">
+  <meta property="article:published_time" content="2021-12-08T22:47:20-07:00">
 
 
 
@@ -273,7 +273,7 @@
 
 <p>where \(\mathcal C\) is a generic constraint set. For many problems, the objective and/or constaints are too cumbersome for a solution to be computed analytically. In such cases, we turn to numerical optimization methods.</p>
 
-<p>In numerical optimization, an objective or cost function is typically minimized iteratively. This is done by stepping through the function domain by choosing a descent direction at each point. Gradient descent, as the name suggests, does so by moving in the direction opposite the gradient at each iterate. The step-size is specified by the ``learning rate’’ which is usually set by the user or some other heuristic. Although the negative gradient is guaranteed to be a descent direction when it is exists, it is possible to step too aggressively and realize a function increase. Barring strong assumptions like Lipschitz continuity, it is difficult to choose the step-size in a principled way.</p>
+<p>In numerical optimization, an objective or cost function is minimized iteratively. This is done by stepping through the function domain and choosing a descent direction at each point. Gradient descent, as the name suggests, does so by moving in the direction opposite the gradient at each iterate. The step-size is specified by the ``learning rate’’ which is usually set by the user. Although the negative gradient is guaranteed to be a descent direction when it is exists, it is possible to step too aggressively and realize a function increase. Barring strong assumptions like Lipschitz continuity, it is difficult to choose the step-size in a principled way.</p>
 
 <p>There are two broad approaches to address this: line-search and trust regions. Line-search methods choose a descent direction then evaluate the objective at different points along the ray until a sufficient reduction in the cost is observed. The methods is intuitively simple and fairly easy to implement. Unfortunately, in some applications such as PDE constrained optimization, a single function evaluation can be prohibitively expensive. Evaluating the objective numerous times for a single iteration is undesirable.</p>
 
@@ -306,7 +306,6 @@
               </li>
               <li>Else
                 <ul>
-                  <li>Use last iterate: \(\mathbf{x_{k+1} = x_k}\)</li>
                   <li>Keep trust region fixed: \(\Delta_{k+1} = \Delta_k\)</li>
                 </ul>
               </li>
@@ -314,6 +313,7 @@
           </li>
           <li>Else
             <ul>
+              <li>Use last iterate: \(\mathbf{x_{k+1} = x_k}\)</li>
               <li>Shrink trust region: \(\Delta_{k+1} = \gamma_{dec} \Delta_k\)</li>
             </ul>
           </li>
@@ -350,7 +350,7 @@
       
   <nav class="pagination">
     
-      <a href="/projects/trophy/" class="pagination--pager" title="
+      <a href="/projects/regression/" class="pagination--pager" title="Uncertain Regression
 ">Previous</a>
     
     

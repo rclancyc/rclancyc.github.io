@@ -11,22 +11,16 @@ var store = [{
         "url": "/projects/index",
         "teaser": null
       },{
-        "title": " ",
-        "excerpt":"This section is based our work published in Physics in Medicine in Biology1. A preprint can be found here. Background It is a grotesque understatement to say that the human brain is complex. Although we are a long way from a complete understanding of the brain, we understand some of...","categories": [],
+        "title": "Brain Imaging",
+        "excerpt":"This section is based on our work published in Physics in Medicine in Biology1. A preprint can be found here. Background It is a grotesque understatement to say that the human brain is complex. Although we are a long way from a complete understanding of the brain, we understand some...","categories": [],
         "tags": [],
         "url": "/projects/neuro/",
         "teaser": null
       },{
         "title": "Uncertain Regression",
-        "excerpt":"Background When the regressors used to fit a statistical model are uncertain, ordinary least squares (the classic regression workhorse) is no longer theoretically appropriate. Unfortunately, accounting for design matrix uncertainty with linear models is often intractable. In this project, we considered an approach based on the saddle point method which...","categories": [],
+        "excerpt":"Background When the regressors used to fit a statistical model are uncertain, ordinary least squares (the classic regression workhorse) is no longer theoretically appropriate. Unfortunately, accounting for design matrix uncertainty with linear models is often intractable. In what follows we consider two approachs, one based on robust optimization and the...","categories": [],
         "tags": [],
         "url": "/projects/regression/",
-        "teaser": null
-      },{
-        "title": " ",
-        "excerpt":"test  ","categories": [],
-        "tags": [],
-        "url": "/projects/trophy/",
         "teaser": null
       },{
         "title": "Trust Region Methods",

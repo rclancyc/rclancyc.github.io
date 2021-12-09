@@ -18,7 +18,7 @@ Before moving to beautiful Boulder, my wife and I lived in Austin, TX. I complet
 </p>
 <p align = "center">
   <em> <small> Showing off my fancy new Chacos after a long hike </small> </em>
-</p>
+</p>x
 
 Prior to graduate school, I spent 8 years in the financial industry as an analyst and futures/options trader in Austin and Houston. I received my Bachelor's degree in Physics from CU Boulder.
 
