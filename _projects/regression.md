@@ -3,7 +3,7 @@ title: "Uncertain Regression"
 usemathjax: true
 header:
   overlay_image: /assets/images/vatican_staircase.jpg
-  caption: "A staircase at The Vatican"
+  caption: "The Vatican"
 permalink: /projects/regression/
 toc: true
 ---

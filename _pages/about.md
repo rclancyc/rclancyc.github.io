@@ -7,7 +7,7 @@ title: "About"
   <img title="Flatirons" src="/assets/images/flatirons.jpg">
 </p>
 <p align = "center">
-  <em> <small> Ariel view of the Flatirons and NCAR in Boulder, CO. Photograph by <a href="https://www.danecronin.com">Dane Cronin</a></small> </em>
+  <em> <small> Aerial view of the Flatirons and NCAR in Boulder, CO. Photograph by <a href="https://www.danecronin.com">Dane Cronin</a></small> </em>
   
 </p>
 

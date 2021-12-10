@@ -1,13 +1,14 @@
 main:
+  - title: "Home"
+    url: /
   - title: "Projects"
     url: /projects/
   - title: "Publications"
     url: /publications/
-  - title: "CV"
-    url: /assets/documents/CV.pdf
   - title: "About"
     url: /about/
-
+  - title: "CV"
+    url: /assets/documents/CV.pdf
 
 # sidebar for portfolio
 # here, I will a title of the index pages, so projects (in which I have markdowns)
