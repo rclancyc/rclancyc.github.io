@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-12-10T09:09:12-07:00">
+  <meta property="article:published_time" content="2021-12-14T00:18:46-07:00">
 
 
 
@@ -212,7 +212,7 @@
         
         <ul>
           
-            <li><a href="/projects/regression/">Uncertain regression</a></li>
+            <li><a href="/projects/regression/">+ Uncertain Regression</a></li>
           
         </ul>
         
@@ -226,9 +226,9 @@
         
         <ul>
           
-            <li><a href="/projects/trust/" class="active">Trust Region Methods</a></li>
+            <li><a href="/projects/trust/" class="active">+ Trust Region Methods</a></li>
           
-            <li><a href="/projects/errorbounds/">Error Bounds for Irregular Grids</a></li>
+            <li><a href="/projects/errorbounds/">+ Error Bounds for Irregular Grids</a></li>
           
         </ul>
         
@@ -236,13 +236,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Simulation and modeling</span>
+          <span class="nav__sub-title">Simulation and Modeling</span>
         
 
         
         <ul>
           
-            <li><a href="/projects/neuro/">Neuroimaging</a></li>
+            <li><a href="/projects/neuro/">+ Brain Imaging</a></li>
           
         </ul>
         
@@ -268,12 +268,20 @@
 
       <section class="page__content e-content" itemprop="text">
         
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#background">Background</a><ul><li><a href="#trust-region-algorithm">Trust region algorithm</a></li></ul></li><li><a href="#variable-precision-trust-region-methods">Variable Precision Trust Region Methods</a></li><li><a href="#hermite-interpolation-methods">Hermite Interpolation Methods</a><ul><li><a href="#interpolating-polynomials">Interpolating polynomials</a></li><li><a href="#underdetermined-system">Underdetermined system</a></li><li><a href="#hermite-interpolation-for-trust-regions">Hermite interpolation for trust regions</a></li></ul></li></ul>
+
+            </nav>
+          </aside>
+        
         <h1 id="background">Background</h1>
 <p>Optimization is concerned with the minimization of an objective or cost function, \(f: \mathbb R^n \rightarrow \mathbb R\), and is cast mathematically as</p>
 
 \[\min_{x \in \mathcal C} f(x)\]
 
-<p>where \(\mathcal C\) is a generic constraint set. For many problems, the objective and/or constaints are too cumbersome for a solution to be computed analytically. In such cases, we turn to numerical optimization methods.</p>
+<p>where \(\mathcal C\) is a generic constraint set. For many problems, the objective and/or constraints are too cumbersome for a solution to be computed analytically. In such cases, we turn to numerical optimization methods.</p>
 
 <p>In numerical optimization, an objective or cost function is minimized iteratively. This is done by stepping through the function domain and choosing a descent direction at each point. Gradient descent, as the name suggests, does so by moving in the direction opposite the gradient at each iterate. The step-size is specified by the ``learning rate’’ which is usually set by the user. Although the negative gradient is guaranteed to be a descent direction when it is exists, it is possible to step too aggressively and realize a function increase. Barring strong assumptions like Lipschitz continuity, it is difficult to choose the step-size in a principled way.</p>
 
@@ -290,41 +298,156 @@
 
 <p>This is performed iteratively until a minimizer is found. The algorithm is given by:</p>
 
-<p><strong>Trust region algorithm</strong></p>
+<h2 id="trust-region-algorithm"><strong>Trust region algorithm</strong></h2>
 <ul>
   <li>Input \(\mathbf x_0, \ \eta_{good}, \ \eta_{great}, \Delta_0, \gamma_{inc}, \gamma_{dec}\)</li>
   <li>For \(k = 0, 1, 2, ..\), loop until converged
     <ul>
       <li>Solve the trust region subproblem \(\mathbf p_k = \text{argmin}_{\mathbf p} \ \ m_k(\mathbf p) \ \   \text{such that }\| \mathbf p \| \le \Delta_k\)</li>
-      <li>Calculate \(\rho_k = \frac{f(\mathbf x_k) - f(\mathbf{x_k + p_k})}{m_k(\mathbf 0) - m_k(\mathbf{p_k})}\)
+      <li>Calculate \(\rho_k = \frac{f(\mathbf x_k) - f(\mathbf{x_k + p_k})}{m_k(\mathbf 0) - m_k(\mathbf{p_k})}\)</li>
+      <li>If \(\rho_k &gt; \eta_{good}\)
         <ul>
-          <li>If \(\rho_k &gt; \eta_{good}\)
+          <li>Accept step: \(\mathbf {x_{k+1} = x_{k} + p_k}\)</li>
+          <li>If \(\rho_k &gt; \eta_{great}\)
             <ul>
-              <li>Accept step: \(\mathbf {x_{k+1} = x_{k} + p_k}\)</li>
-              <li>If \(\rho_k &gt; \eta_{great}\)
-                <ul>
-                  <li>Expand trust region: \(\Delta_{k+1} = \gamma_{inc} \Delta_k\)</li>
-                </ul>
-              </li>
-              <li>Else
-                <ul>
-                  <li>Keep trust region fixed: \(\Delta_{k+1} = \Delta_k\)</li>
-                </ul>
-              </li>
+              <li>Expand trust region: \(\Delta_{k+1} = \gamma_{inc} \Delta_k\)</li>
             </ul>
           </li>
           <li>Else
             <ul>
-              <li>Use last iterate: \(\mathbf{x_{k+1} = x_k}\)</li>
-              <li>Shrink trust region: \(\Delta_{k+1} = \gamma_{dec} \Delta_k\)</li>
+              <li>Keep trust region fixed: \(\Delta_{k+1} = \Delta_k\)</li>
             </ul>
           </li>
+        </ul>
+      </li>
+      <li>Else
+        <ul>
+          <li>Use last iterate: \(\mathbf{x_{k+1} = x_k}\)</li>
+          <li>Shrink trust region: \(\Delta_{k+1} = \gamma_{dec} \Delta_k\)</li>
         </ul>
       </li>
     </ul>
   </li>
   <li>next \(k\)</li>
 </ul>
+
+<hr />
+
+<h1 id="variable-precision-trust-region-methods">Variable Precision Trust Region Methods</h1>
+
+<p>We consider the model \(m_k(\mathbf p) = f(\mathbf  x_k) + \mathbf  p^T \nabla f(\mathbf  x_k) + (1/2) \mathbf  p^T \mathbf  H_k \mathbf  p\) where \(\mathbf  H_k\) is an approximation for the Hessian and assume the both function and gradient evaluations are expensive to compute. This setup is typical for PDE constrained and large-scale optimization. In such cases, we would like to evaluate the objective and gradient as infrequently as possible since it might take hours for even a single function evaluation. Under such conditions, line-search methods are undesirable since they may require calling the objective many times for a single iteration. A trust region method is a natural choice.</p>
+
+<p>Given the computational burden associated with calling the function, we would like to find ways to reduce the cost. Although double precision is standard for scientific computing, there are many situations in which the additional accuracy is unnecessary. Furthermore, new hardware including GPUs and TCUs natively support lower precision types such as single and big float halfs which can significantly reduce computational, communication, and storage costs as well as power consumption. In work with <a href="https://www.anl.gov/profile/jan-christian-hueckelheim">Jan Hückelheim</a>, <a href="https://www.anl.gov/profile/matt-menickelly">Matt Mennickelly</a>, <a href="https://www.mcs.anl.gov/~hovland/">Paul Hovland</a>, and <a href="https://www.anl.gov/profile/sri-hari-krishna-narayanan">Krishna Narayanan</a> of Argonne National Laboratory, we investigated the use of switching precision when necessary to reduce the computational load.</p>
+
+<p>To further reduce the cost for large scale problems, we used a limited memory symmetric rank-1 update for the approximate Hessian. This allowed us to implement a matrix-free Hessian vector product to keep the linear algebra cost on the trust region subproblem low. Preliminary results are promising showing a reduction in cost assuming that single (half) precision evaluations can be computed for 1/2 (1/4) of the cost required for double precision.</p>
+
+<p>TABLE:  Wind field retrieval example</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Run</th>
+      <th style="text-align: center"># its</th>
+      <th style="text-align: center">Half calls</th>
+      <th style="text-align: center">Sing calls</th>
+      <th style="text-align: center">Doub calls</th>
+      <th style="text-align: center">Adj calls</th>
+      <th style="text-align: center">Fun val</th>
+      <th style="text-align: center">Grad 2-norm</th>
+      <th style="text-align: center">Grad inf-norm</th>
+      <th style="text-align: center">Success</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">Single avg</td>
+      <td style="text-align: center">3410</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">3411</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1706</td>
+      <td style="text-align: center">0.005263138</td>
+      <td style="text-align: center">0.000950775</td>
+      <td style="text-align: center">3.96E-05</td>
+      <td style="text-align: center">TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Double avg</td>
+      <td style="text-align: center">1876</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1877</td>
+      <td style="text-align: center">1877</td>
+      <td style="text-align: center">0.0045012</td>
+      <td style="text-align: center">0.00090924</td>
+      <td style="text-align: center">3.75E-05</td>
+      <td style="text-align: center">TRUE</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Dyn avg</td>
+      <td style="text-align: center">2362</td>
+      <td style="text-align: center">465</td>
+      <td style="text-align: center">1898</td>
+      <td style="text-align: center">6</td>
+      <td style="text-align: center">1071</td>
+      <td style="text-align: center">0.004732105</td>
+      <td style="text-align: center">0.000942858</td>
+      <td style="text-align: center">4.01E-05</td>
+      <td style="text-align: center">TRUE</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Performance of variable precision algorithm versus single and double precision implementation. Stopping criteria \(\| \nabla f(\mathbf x_k) \|_2 &lt; 10^{-3}\)</em></p>
+
+<p>We note that in the above example, the adjusted number of calls is based on a double, single and half precision evaluation costing 1, 1/2, and 1/4, respectively. Our dynamic precision algorithm performs well offering an encouraging proof of concept.</p>
+
+<h1 id="hermite-interpolation-methods">Hermite Interpolation Methods</h1>
+
+<p>Similar to the previous section, we consider the case where gradient evaluations are expensive or only available intermittently. This might be the case if using finite difference approximations or when using a multi-fidelity framework; approximate function evaluations for low-fidelity, exact function and gradient evaluations for high-fidelity. With limited availability of derivatives, the derivative free optimization (DFO) framework seems appropriate. DFO methods have seen considerable interest over the past several years given their ability to handle non-differentiable objectives arising in machine learning and data science applications. The classical approach is to construct a model function \(m_k(\mathbf p)\) for the TR subproblem using an interpolating polynomial rather than a Taylor expansion. Taylor series are popular since they provide optimal local information such as the direction of steepest descent and curvature, but provide limited knowledge outside the immediate neighborhood barring strong assumptions.</p>
+
+<h2 id="interpolating-polynomials">Interpolating polynomials</h2>
+<p>Interpolation methods track previous function values providing more information about the objective’s general behavior. Accordingly, weights are chosen such that \(m_k(\mathbf 0) = 0\) and \(m_k(\mathbf p_i) = f(\mathbf x_k) - f(\mathbf x_i)\) for up to \(\frac{n(n-1)}{2}\) previous function values. We center the interpolating function to simplify calculations and intuition later. Using these interpolation conditions, we can compute weights to find the interpolating polynomial to use in the trust region subproblem.</p>
+
+<p>For example, consider a two dimensional problem of variables \(\mathbf p^T = [x, y]\). Our form for the model is \(m_k(\mathbf p) = \mathbf{g^T p} + (1/2)\mathbf{p^T \ H \ p}\) which can be expanded element-wise as</p>
+
+\[m_k(x,y) = g_x x + g_y y + \frac{1}{2}(H_{xx} x^2 + 2 H_{xy} xy + H_{yy} y^2).\]
+
+<p>Note that we can write this as a linear function of \(\alpha^T = [g_x, \ g_y, \ H_{xx}, \ H_{yy}, \ H_{xy}]\). Hence, letting \(\phi(\mathbf p)^T = [x, \ y, \ (1/2) x^2, \ (1/2)y^2, \ xy]\), we have the linear function \(m_k(\mathbf p) =  \phi(\mathbf p)^T \alpha\). This gives rise to a Vandermonde matrix and we can solve for the interpolating polynomial coefficients. In particular, we solve the following equation for \(\alpha\):</p>
+
+\[\begin{bmatrix} 
+   \rule{1cm}{0.4pt} &amp; \phi(\mathbf p_1)^T &amp; \rule{1cm}{0.4pt}  \\
+   \rule{1cm}{0.4pt} &amp; \phi(\mathbf p_2)^T &amp; \rule{1cm}{0.4pt} \\
+   &amp; \vdots &amp;  \\
+   \rule{1cm}{0.4pt} &amp; \phi(\mathbf p_m)^T &amp; \rule{1cm}{0.4pt}
+  \end{bmatrix} \alpha = \mathbf f,\]
+
+<p>where \(\mathbf{f}\) is a vector of centered function values for the current iteration \(k\), i.e., \((\mathbf f)_j = f(\mathbf p_j)-f(\mathbf p_k)\). We generally split \(V^T\) into two separate matrices corresponding the the linear and quadratic terms such that \([L, \ Q] = V^T\) and \([\alpha^T_L, \ \alpha^T_Q] = \alpha\). We rewrite the Vandermonde system as</p>
+
+\[L \alpha_L + Q \alpha_Q = \mathbf f_k.\]
+
+<p>It is easily seen that this same formulation will extend to higher dimension with \(\alpha_L\) being the linear weights, the first \(n\) components of \(\alpha_Q\) corresponding the diagonal terms of the quadratic polynomial Hessian, and the remainder corresponding to the cross-terms.</p>
+
+<h2 id="underdetermined-system">Underdetermined system</h2>
+
+<p>For a unique solution to exist for the Vandermonde system above, there must be an equal number of interpolating conditions to the number of coefficients in the polynomial. For high-dimensional problems we often have many more variables that constraints. In such cases, we can recover a unique solution by solving them minimum norm problem, i.e.,</p>
+
+\[\qquad \qquad \min_{\alpha} \frac{1}{2} \|\alpha \|^2 \\
+\text{subject to} \quad V^T \alpha = \mathbf f.\]
+
+<h2 id="hermite-interpolation-for-trust-regions">Hermite interpolation for trust regions</h2>
+
+<p>Although we do not observe the gradient on every iteration, we have occasional access. When available, we would like to use the gradient information to help improve the model. Hermite interpolation is a method designed to match function and derivative values as well. In one-dimension, we can fit a line with two points or alternately use a function value and function derivative. That is, the points \((x_1, f(x_1))\) and \((x_2, f(x_2))\) specifies a line as does \((x_1, f(x_1))\) and \((x_1, f'(x_1))\) with the latter, incidentally, corresponding to the linear Taylor expansion.</p>
+
+<p>Borrowing ideas from one-dimensional Hermite interpolation, we can fit gradients which provide \(n\) additional constraints to improve our model. Simple calculus shows that</p>
+
+\[\nabla m_k(\mathbf p) = \mathbf g + \mathbf{H \ p} = \nabla f(\mathbf x_k + \mathbf p).\]
+
+<p>This can be rewritten with an augmented Vandermonde system,</p>
+
+\[\begin{bmatrix} L \\ I \end{bmatrix} \alpha_L + \begin{bmatrix} Q \\ D_j \end{bmatrix} \alpha_Q = \begin{bmatrix} \mathbf f \\ \nabla f(\mathbf x_j) \end{bmatrix},\]
+
+<p>More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information and amending the optimization problem in high-dimensional trust region subproblems to accelerate convergence.</p>
 
         
       </section>

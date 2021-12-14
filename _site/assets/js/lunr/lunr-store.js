@@ -1,12 +1,12 @@
 var store = [{
         "title": " ",
-        "excerpt":" ","categories": [],
+        "excerpt":"Under construction, come back soon!  ","categories": [],
         "tags": [],
         "url": "/projects/errorbounds/",
         "teaser": null
       },{
         "title": "Projects",
-        "excerpt":"This page contains several projects I have either completed over the past several years or am currently working on.   Regression   Trust Region Methods   Neuroimaging  ","categories": [],
+        "excerpt":"This page contains several projects I have either completed over the past several years or am currently working on.   Regression   Trust Region Methods   Brain Imaging  ","categories": [],
         "tags": [],
         "url": "/projects/index",
         "teaser": null
@@ -24,7 +24,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Trust Region Methods",
-        "excerpt":"Background Optimization is concerned with the minimization of an objective or cost function, \\(f: \\mathbb R^n \\rightarrow \\mathbb R\\), and is cast mathematically as \\[\\min_{x \\in \\mathcal C} f(x)\\] where \\(\\mathcal C\\) is a generic constraint set. For many problems, the objective and/or constaints are too cumbersome for a solution...","categories": [],
+        "excerpt":"Background Optimization is concerned with the minimization of an objective or cost function, \\(f: \\mathbb R^n \\rightarrow \\mathbb R\\), and is cast mathematically as \\[\\min_{x \\in \\mathcal C} f(x)\\] where \\(\\mathcal C\\) is a generic constraint set. For many problems, the objective and/or constraints are too cumbersome for a solution...","categories": [],
         "tags": [],
         "url": "/projects/trust/",
         "teaser": null

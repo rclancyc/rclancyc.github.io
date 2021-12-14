@@ -11,4 +11,4 @@ This page contains several projects I have either completed over the past severa
 
 ### [Trust Region Methods](/projects/trust)
 
-### [Neuroimaging](/projects/neuro) 
+### [Brain Imaging](/projects/neuro) 

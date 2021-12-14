@@ -57,7 +57,7 @@ plugins:
 author:
   name   : #"Richard Clancy"
   avatar : "/assets/images/headshot.jpg"
-  bio    : "Computational mathematician, statistician, and data scientist"
+  bio    : "Applied mathematician, optimizer, programmer, and data scientist"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"

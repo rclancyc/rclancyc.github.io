@@ -15,17 +15,17 @@ main:
 projects:
   - title: "Statistics"
     children: 
-      - title: "Uncertain regression"
+      - title: "+ Uncertain Regression"
         url: /projects/regression/
 
   - title: "Numerical Methods"
     children:
-      - title: "Trust Region Methods"
+      - title: "+ Trust Region Methods"
         url: /projects/trust/
-      - title: "Error Bounds for Irregular Grids"
+      - title: "+ Error Bounds for Irregular Grids"
         url: /projects/errorbounds/
 
-  - title: "Simulation and modeling"
+  - title: "Simulation and Modeling"
     children:
-      - title: "Neuroimaging"
+      - title: "+ Brain Imaging"
         url: /projects/neuro/

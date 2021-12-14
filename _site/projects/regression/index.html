@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-12-10T09:09:12-07:00">
+  <meta property="article:published_time" content="2021-12-14T00:18:46-07:00">
 
 
 
@@ -212,7 +212,7 @@
         
         <ul>
           
-            <li><a href="/projects/regression/" class="active">Uncertain regression</a></li>
+            <li><a href="/projects/regression/" class="active">+ Uncertain Regression</a></li>
           
         </ul>
         
@@ -226,9 +226,9 @@
         
         <ul>
           
-            <li><a href="/projects/trust/">Trust Region Methods</a></li>
+            <li><a href="/projects/trust/">+ Trust Region Methods</a></li>
           
-            <li><a href="/projects/errorbounds/">Error Bounds for Irregular Grids</a></li>
+            <li><a href="/projects/errorbounds/">+ Error Bounds for Irregular Grids</a></li>
           
         </ul>
         
@@ -236,13 +236,13 @@
     
       <li>
         
-          <span class="nav__sub-title">Simulation and modeling</span>
+          <span class="nav__sub-title">Simulation and Modeling</span>
         
 
         
         <ul>
           
-            <li><a href="/projects/neuro/">Neuroimaging</a></li>
+            <li><a href="/projects/neuro/">+ Brain Imaging</a></li>
           
         </ul>
         
@@ -293,7 +293,7 @@
 
 \[\mathbf{\hat x}_{\text{OLS}} = \text{argmin}_{\mathbf{x}} \| \mathbf{A x - y}\|^2.\]
 
-<p>For OLS, we minimize sum of residuals squared, that is, we make the mismatch between the observed data and modeled data as small as possible. The solution can be found in easily found and is given by the closed form solution \(\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dagger \mathbf{A}^T \mathbf{y}\) where \(\dagger\) denotes the Moore-Penrose psuedo-inverse. Although the problem is intuitively appealing and its solution is simple, OLS suffers from several draw backs.</p>
+<p>For OLS, we minimize sum of residuals squared, that is, we make the mismatch between the observed data and modeled data as small as possible. The solution can be found in easily found and is given by the closed form solution \(\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dagger \mathbf{A}^T \mathbf{y}\) where \(\dagger\) denotes the Moore-Penrose pseudo-inverse. Although the problem is intuitively appealing and its solution is simple, OLS suffers from several draw backs.</p>
 
 <p>First, the problem is often poorly conditioned which a numerical analysts way of saying the solution is sensitive to noise in the data. The normal equation solution provided above exacerbates problems with conditioning. Second, the standard formulation assumes that the data or design matrix \(\mathbf A\) is known precisely which is often a poor assumption. Typical causes of operator uncertainty are sampling error, measurement error, human error, modeling error, or rounding error.</p>
 
@@ -343,7 +343,7 @@
 <p>The work is this subsection is based on our preprint that can be found <a href="https://arxiv.org/pdf/2104.03307">here</a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>.</p>
 
 <h2 id="regression-as-maximum-likelihood-estimation">Regression as maximum likelihood estimation</h2>
-<p>A reasonable question to ask is ``why should we consider maximum likelihood estimation for regression?’’. It turns out that when we consider additive noise alone, i.e., \(\boldsymbol \eta = \mathbf{y - Ax}\) is a random varianble, the OLS solution conincides with the maximum likelihood estimator (MLE) for \(\boldsymbol{\eta} \sim \mathcal{N} (\boldsymbol{0}, \sigma^2 \mathbf{I})\). Similarly the solutions to \(\min_{\mathbf{x}} \| \mathbf{A x - y} \|_{\infty}\) (minimax regression) and \(\min_{\mathbf{x}} \| \mathbf{A x - y} \|_1\) (least deviation regression) coincide with the MLEs for uniform and Laplacian noise, respectively. This relationship between regression and MLE for different noise models suggests using MLE to infer model parameters in more complicated settings such as when the design matrix uncertain.</p>
+<p>A reasonable question to ask is ``why should we consider maximum likelihood estimation for regression?’’. It turns out that when we consider additive noise alone, i.e., \(\boldsymbol \eta = \mathbf{y - Ax}\) is a random variable, the OLS solution coincides with the maximum likelihood estimator (MLE) for \(\boldsymbol{\eta} \sim \mathcal{N} (\boldsymbol{0}, \sigma^2 \mathbf{I})\). Similarly the solutions to \(\min_{\mathbf{x}} \| \mathbf{A x - y} \|_{\infty}\) (minimax regression) and \(\min_{\mathbf{x}} \| \mathbf{A x - y} \|_1\) (least deviation regression) coincide with the MLEs for uniform and Laplacian noise, respectively. This relationship between regression and MLE for different noise models suggests using MLE to infer model parameters in more complicated settings such as when the design matrix uncertain.</p>
 
 <h2 id="mle-formulation">MLE formulation</h2>
 <p>We consider the general case where the design matrix \(\mathbf{A}\) is a random variable (not necessarily Gaussian) as well. To amplify this fact, we change the design matrix to be a random \(\mathbf G\) instead of a fixed \(\mathbf A\). MLE regression problems rely on knowledge of the vector \(\mathbf y\)’s joint probability density function (PDF). Note that each component of \(\mathbf y\) in the generative model is the sum of scaled random variables, i.e., \(y_i = \mathbf g_i^T \mathbf x + \eta_i = \sum_{i=1}^n G_{ij}x_j + \eta_i\) where \(\mathbf g_i^T\) is the \(i^\text{th}\) row of \(\mathbf G\) and subscripts denote the component of the corresponding vector. Despite the innocuous form, sums of random variables are difficult to work with: individual PDFs must be convolved to obtain a PDF for their sum. For general noise models, forming an exact MLE is intractable and necessitates alternate techniques for solving the MLE problem.</p>
