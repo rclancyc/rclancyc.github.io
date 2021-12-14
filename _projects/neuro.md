@@ -11,11 +11,11 @@ This section is based on our work published in [_Physics in Medicine in Biology_
 
 # Background
 
-It is a grotesque understatement to say that the human brain is complex. Although we are a long way from a complete understanding of the brain, we understand some of its basic functions. Of particular interest is the propogation of electrical signals across synapsis which the brain uses to relay instruction to the body. As electrons flow, there are neural currents that, as Maxwell's equation show, give rise to magnetic fields. 
+It is a grotesque understatement to say that the human brain is complex. Although we are a long way from a complete understanding of the brain, we understand some of its basic functions. Of particular interest is the propagation of electrical signals across synapsis which the brain uses to relay instruction to the body. As electrons flow, there are neural currents that, as Maxwell's equation show, give rise to magnetic fields. 
 
-These biomagnetic fields induced by brain currents are extremely weak (7 to 10 orders of magnitude smaller than the Earth's field). Despite the seeming hopelesslness of recovering such ridiculously small signal, it is possible and precisely the goal of magnetoencelphalography  (pronounced _mag-nee-toe-en-sell-ful-ography_). Don't worry if you can't say it, you have plenty of good company. Since it's a mouthful, we normally go with its acronym...MEG.
+These biomagnetic fields induced by brain currents are extremely weak (7 to 10 orders of magnitude smaller than the Earth's field). Despite the seeming hopelessness of recovering such ridiculously small signal, it is possible and precisely the goal of magnetoencelphalography  (pronounced _mag-nee-toe-en-sell-ful-ography_). Don't worry if you can't say it, you have plenty of good company. Since it's a mouthful, we normally go with its acronym...MEG.
 
-MEG is a non-invasive method to image brain function with high spatial and temporal resolution. This is done by placing an array of magnetometers on the scalp and measuring the magnetics field. As one can imagine, it is difficult to isolate brain fields from those originating externally, i.e., Earth, electical lines, train passing nearby, etc. Nearly every other source will have a magnetic signature orders of magnitude larger than those induced by brain currents.
+MEG is a non-invasive method to image brain function with high spatial and temporal resolution. This is done by placing an array of magnetometers on the scalp and measuring the magnetics field. As one can imagine, it is difficult to isolate brain fields from those originating externally, i.e., Earth, electrical lines, train passing nearby, etc. Nearly every other source will have a magnetic signature orders of magnitude larger than those induced by brain currents.
 
 
 <p align="center">
@@ -29,7 +29,7 @@ MEG readings are used to explore and understand regions and signatures of functi
 
 # New Possibilities with New Sensors
 
-Recent advances in total field optically pumped magnetometers (OPM) offer a promising alternative to SQUIDs. They operate at room temperature thus eliminating the need for bulky Dewars and hence can be placed within millimeters of the scalp. For more detail, see and [overview here](https://tf.nist.gov/general/pdf/2687.pdf)[^2] OPMs are also capable of measuring weak magnetic fields induced by the brain in the presence of large ambient fields allowing for the possibility of wearable MEG systems outside of laboratory environments.
+Recent advances in total field optically pumped magnetometers (OPM) offer a promising alternative to SQUIDs. They operate at room temperature thus eliminating the need for bulky Dewars and hence can be placed within millimeters of the scalp. For more detail, see an [overview here](https://tf.nist.gov/general/pdf/2687.pdf)[^2] OPMs are also capable of measuring weak magnetic fields induced by the brain in the presence of large ambient fields allowing for the possibility of wearable MEG systems outside of laboratory environments.
 
 Since total field OPMs are a nascent technology for biomedical imaging, I've collaborated with experts in the field such as [Svenja Knappe](https://www.linkedin.com/in/svenja-knappe-701aa613a/), [Orang Alem](https://www.linkedin.com/in/orang-alem/), and [Jeramy Hughes](https://www.linkedin.com/in/kjeramyhughes/) for a simulation study to determine necessary system specifications including sensor count, sensitivity, and forward model fidelity to accurately localize a single dipolar current in a brain modelled as a conducting sphere. 
 

@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Projects",
-        "excerpt":"This page contains several projects I have either completed over the past several years or am currently working on.   Regression   Trust Region Methods   Brain Imaging  ","categories": [],
+        "excerpt":"This page contains several projects I have either completed over the past few years or am currently working on.   Regression   Trust Region Methods   Brain Imaging  ","categories": [],
         "tags": [],
         "url": "/projects/index",
         "teaser": null
