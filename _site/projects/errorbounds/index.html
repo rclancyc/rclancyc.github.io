@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-12-14T00:52:54-07:00">
+  <meta property="article:published_time" content="2021-12-21T17:33:36-06:00">
 
 
 
@@ -268,7 +268,103 @@
 
       <section class="page__content e-content" itemprop="text">
         
-        <p>Under construction, come back soon!</p>
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#background">Background</a></li><li><a href="#non-uniform-meshes">Non-Uniform Meshes</a></li><li><a href="#improved-truncation-error">Improved Truncation Error</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>This section is based on my <a href="/assets/documents/ms_thesis_2017.pdf">Masters thesis</a> completed while at Texas State. It’s been my intention for several years now to submit this work to a journal, but for the time being, this page will have to suffice.</p>
+
+<h1 id="background">Background</h1>
+
+<p>Partial differential equations (PDEs) lay the foundation for the physical sciences and many engineering disciplines.  We focus our attention here on Poisson’s Equation, an elliptic PDE given by</p>
+
+\[\begin{align}
+\nabla^2 u(x) &amp; = f(x),  \qquad x \in \Omega, \\
+u(x) &amp; = g(x), \qquad x \in \partial \Omega,
+\end{align}\]
+
+<p>where \(\Omega\) is the interior of the domain and \(\partial \Omega\) is the boundary. Unfortunately, most PDEs can’t be solved analytically. This limitation necessitates approximate solutions to these systems.</p>
+
+<p>To simplify the problem, rather than solving the PDE on a continuum, \(\Omega\) is discretized to a finite number of points and a solution is found that satisfies the equation on this constrained or projected set. The discretized PDE is written as</p>
+
+\[\begin{align}
+\nabla_h^2 u(x) &amp; = f(x),  \qquad x \in \Omega_h, \\
+u(x) &amp; = g(x), \qquad x \in \partial \Omega_h.
+\end{align}\]
+
+<p>The subscript denotes the discretized operator and domain. For those of you unfamiliar with numerical PDEs, a natural question is how one finds a discretized operator?</p>
+
+<p>A classical method for discretizing and solving PDEs numerically is the finite difference method (FDM). The basic idea is to use Taylor expansions to approximate differential operators. For illustrative purposes, consider the one dimensional function \(f(x)\). To approximate \(f''(x)\), we Taylor expand \(f(x+h)\) and \(f(x-h)\) about \(x\). We call \(h\) our step size and write \(f(x), \ f(x+h)\) and \(f(x-h)\) as \(f_0, \ f_+\), and \(f_-\), respectively. Hence, we can write</p>
+
+\[\begin{align}
+  f_- &amp; = f(x) - f'(x)h + \frac 1 2 f''(x)h^2 - \frac 1 6 f'''(x)h^3 + \frac 1 {24} f^{(4)}(x)h^4 + \dots _, \\
+  f_0 &amp; = f(x)_, \\
+  f_+ &amp; = f(x) + f'(x)h + \frac 1 2 f''(x)h^2 + \frac 1 6 f'''(x)h^3 + \frac 1 {24} f^{(4)}(x)h^4 + \dots _.
+\end{align}\]
+
+<p>Adding the first and third equation and subtracting two times the second gives</p>
+
+\[f_- \ -\ 2f_0 \ +\  f_+ = f''(x) h^2 + \frac 1 {12} f^{(4)}(x) h^4 + \dots,\]
+
+<p>which we rearrange to give</p>
+
+\[f''(x) = \frac{ f_ \ - \ 2f_0 \ + \ f_+}{h^2} + \mathcal{O}(h^2).\]
+
+<p>When \(h\) is taken to be small, the approximation</p>
+
+\[f''(x) \approx \frac{f(x-h) - 2f(x) + f(x+h)}{h^2}\]
+
+<p>holds well. The above expression is known as the three point FDM approximation to the second derivative. Of particular note is that the <em>truncation error</em>, which tells how inaccurate our solution is, scales with \(h^2\), i.e., the smaller the step size, the more accurate the approximation. The square suggests that when we halve our step size, the approximation’s error reduces by a factor of 4.</p>
+
+<p>In the above expansion, we benefited from the symmetry in step sizes. Since \(f_-\) and \(f_+\) are a distance of \(h\) away from the expansion point, the 1st and 3rd derivative terms dropped out. Consequently, the dominate error term came from the fouther derivative or the \(h^2\) term. What happens when the mesh is not spaced uniformly?</p>
+
+<h1 id="non-uniform-meshes">Non-Uniform Meshes</h1>
+
+<p>We now consider the case where the left and right step sizes are different. In the above case, a naive error analysis suggests that the truncation error varies as \(\mathcal O (h)\) rather then \(\mathcal O (h^2)\) owing the 3rd derivative term. One reason to use an irregular mesh is when the boundary exhibits non-standard geometry. This becomes a concern for simple problem such as using a Cartesian mesh on a circular domain. Since the boundary elements are irregularly spaced from interior mesh points, an asymmetric mesh must be used as seen in Figure 1.</p>
+
+<p align="center">
+  <img title="Cartesian mesh on circular domain" alt="Cartesian mesh on circular domain" src="/assets/images/circle.jpg" width="300" />
+</p>
+<p align="center">
+  <em> <small> Figure 1: Cartesian mesh on circular domain necessitating irregular grid. </small> </em>
+</p>
+
+<p>Another use for non-uniform meshes is increased resolution in regions where the solution’s behavior exhibits interesting properties. A prototypical example is Poisson’s equation with \(f(x) = -1\) in \(\Omega\) and \(g(x) = 0\) on \(\partial \Omega\) where \(\Omega\) is a recalcitrant square or flag-shaped domain. The numerical solution and its error is show in Figure 2. By introducing a finer mesh, the numerical error can be effectively tamped down locally.</p>
+
+<p align="center">
+  <img title="Solution" src="/assets/images/solution.png" width="310" /><img title="Solution error" src="/assets/images/solutionerror.png" width="310" />
+</p>
+<p align="center">
+  <em> <small> Figure 2: Solution to Poisson's equation over a flag-shaped domain (left) and the corresponding numerical error (right). </small> </em>
+</p>
+
+<h1 id="improved-truncation-error">Improved Truncation Error</h1>
+
+<p>In this thesis, I extended the work of Bramble and Hubbard<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> to show that the truncation error \(\epsilon(x,y)\) for the two dimensional Poisson equation with Dirichlet boundary conditions is upper bounded by</p>
+
+<p>\(|\epsilon(x,y)| \le \frac{2h^2}{3} \left\{ \frac{d_0^2 M_4}{64} + M_3 \left[ h + \frac{d_X^2 + d_Y^2}{(O_X^2 + O_X^{\ })^{-1} + (O_Y^2 + O_Y^{\ })^{-1}} \right] \right\}\)
+where</p>
+<ul>
+  <li>\(h\) is the <em>largest</em> step size,</li>
+  <li>\(M_3, \ M_4\) are the largest 3rd and 4th derivatives, respectively,</li>
+  <li>\(d_0\) is the diameter of the smallest circle enclosing the domain,</li>
+  <li>\(d_X, \ d_Y\) are the width and height of smallest rectangle containing the domain,</li>
+  <li>\(O_X, \ O_Y\) are the number of non-uniform mesh points in the \(x\) and \(y\) directions, respectively.</li>
+</ul>
+
+<p>Details on the particulars can be found <a href="/assets/documents/ms_thesis_2017.pdf">here</a>.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Bramble, James H., and B. E. Hubbard. On the formulation of finite difference analogues of the Dirichlet problem for Poisson’s equation. MARYLAND UNIV COLLEGE PARK INST FOR FLUID DYNAMICS AND APPLIED MATHEMATICS, 1961. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
         
       </section>

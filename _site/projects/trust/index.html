@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-12-14T00:52:54-07:00">
+  <meta property="article:published_time" content="2021-12-21T17:33:36-06:00">
 
 
 
@@ -432,8 +432,8 @@
 
 <p>For a unique solution to exist for the Vandermonde system above, there must be an equal number of interpolating conditions to the number of coefficients in the polynomial. For high-dimensional problems we often have many more variables that constraints. In such cases, we can recover a unique solution by solving them minimum norm problem, i.e.,</p>
 
-\[\qquad \qquad \min_{\alpha} \frac{1}{2} \|\alpha \|^2 \\
-\text{subject to} \quad V^T \alpha = \mathbf f.\]
+\[\qquad \qquad \min_{\alpha} \frac{1}{2} \|\alpha_Q \|^2 \\
+\text{subject to} \quad L \alpha_L + Q \alpha_Q = \mathbf f_k.\]
 
 <h2 id="hermite-interpolation-for-trust-regions">Hermite interpolation for trust regions</h2>
 

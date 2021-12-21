@@ -1,6 +1,6 @@
 var store = [{
         "title": " ",
-        "excerpt":"Under construction, come back soon!  ","categories": [],
+        "excerpt":"This section is based on my Masters thesis completed while at Texas State. It’s been my intention for several years now to submit this work to a journal, but for the time being, this page will have to suffice. Background Partial differential equations (PDEs) lay the foundation for the physical...","categories": [],
         "tags": [],
         "url": "/projects/errorbounds/",
         "teaser": null
