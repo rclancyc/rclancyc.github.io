@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Richard J. Clancy
-email: richard.clancy@colorado.edu
+email: 
 description: >- # this means to ignore newlines until "baseurl:"
   #Welcome to my personal website! You can find information about some of my projects, research interests, and past experiences.
 #twitter_username: username
@@ -101,6 +101,7 @@ footer:
 
 collections:
   projects:
+    classes: wide
     output: true
     permalink: #/:collection/:path/
 
@@ -130,6 +131,7 @@ defaults:
       type: projects
     values:
       layout: single
+      classes: wide
       author_profile: false
       share: true
       excerpt: ""
@@ -138,6 +140,12 @@ defaults:
 
 
 
+# Analytics
+analytics:
+  provider: "google-gtag"
+  google:
+    measurement_id: G-EY45K27ZZR
+    anonymize_ip: # true, false (default)
 
 
 #category_archive:

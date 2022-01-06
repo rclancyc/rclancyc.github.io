@@ -7,11 +7,16 @@ header:
   overlay_image: /assets/images/stcroix1.jpg
   caption: "St. Croix, USVI"
 ---
-Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado at Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus primarily on numerical optimization, inverse problems, and regression subject to uncertain data. Although this website is under construction, you can find information about my research interests and a few of the projects I've worked on over the years. More to come!
+Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado at Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus primarily on numerical optimization, inverse problems, and regression subject to uncertain data. Although this website is a work in progress, you can find information about my research including several projects I've worked on over the years. __I plan to graduate in May-August 2022 and will be on the job market!__
 
-__I plan to graduate in May-August 2022 and will be on the job market!__
 
-## Recent News
+
+
+
+# Recent News
+
+### December 2021
+- I was fortunate to share my work on brain imaging and other topics in applied math with the [Institute for Human Neuroscience](https://www.boystownhospital.org/research/institute-human-neuroscience) at Boys Town Research Hospital in Omaha, Nebraska. 
 
 ### September 2021
 
@@ -19,7 +24,7 @@ __I plan to graduate in May-August 2022 and will be on the job market!__
 
 ### July 2021
 
-- I presented our recent work on uncertain regression problems at SIAM OPT, Spokane, WA (remote). Slides can be found [here](/assets/documents/siam_opt21.pdf).
+- Presented our recent work on uncertain regression problems at SIAM OPT, Spokane, WA (remote). Slides can be found [here](/assets/documents/siam_opt21.pdf).
 
 ### May 2021
 

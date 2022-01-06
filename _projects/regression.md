@@ -30,7 +30,7 @@ $$
 \mathbf{\hat x}_{\text{OLS}} = \text{argmin}_{\mathbf{x}} \| \mathbf{A x - y}\|^2.
 $$
 
-For OLS, we minimize sum of residuals squared, that is, we make the mismatch between the observed data and modeled data as small as possible. The solution can be found in easily found and is given by the closed form solution $$\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dagger \mathbf{A}^T \mathbf{y}$$ where $$\dagger$$ denotes the Moore-Penrose pseudo-inverse. Although the problem is intuitively appealing and its solution is simple, OLS suffers from several draw backs. 
+For OLS, we minimize sum of residuals squared, that is, we make the mismatch between the observed data and modeled data as small as possible. The solution is easily found and given by $$\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dagger \mathbf{A}^T \mathbf{y}$$ where $$\dagger$$ denotes the Moore-Penrose pseudo-inverse. Although the problem is intuitively appealing and its solution is simple, OLS suffers from several draw backs. 
 
 First, the problem is often poorly conditioned which a numerical analysts way of saying the solution is sensitive to noise in the data. The normal equation solution provided above exacerbates problems with conditioning. Second, the standard formulation assumes that the data or design matrix $$\mathbf A$$ is known precisely which is often a poor assumption. Typical causes of operator uncertainty are sampling error, measurement error, human error, modeling error, or rounding error.
 

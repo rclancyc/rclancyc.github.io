@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2021-12-21T17:33:36-06:00">
+  <meta property="article:published_time" content="2022-01-06T10:25:33-07:00">
 
 
 
@@ -90,7 +90,7 @@
 
   </head>
 
-  <body class="layout--single">
+  <body class="layout--single wide">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -214,6 +214,8 @@
           
             <li><a href="/projects/regression/" class="active">+ Uncertain Regression</a></li>
           
+            <li><a href="/projects/blindss/">+ Blind Source Separation</a></li>
+          
         </ul>
         
       </li>
@@ -293,7 +295,7 @@
 
 \[\mathbf{\hat x}_{\text{OLS}} = \text{argmin}_{\mathbf{x}} \| \mathbf{A x - y}\|^2.\]
 
-<p>For OLS, we minimize sum of residuals squared, that is, we make the mismatch between the observed data and modeled data as small as possible. The solution can be found in easily found and is given by the closed form solution \(\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dagger \mathbf{A}^T \mathbf{y}\) where \(\dagger\) denotes the Moore-Penrose pseudo-inverse. Although the problem is intuitively appealing and its solution is simple, OLS suffers from several draw backs.</p>
+<p>For OLS, we minimize sum of residuals squared, that is, we make the mismatch between the observed data and modeled data as small as possible. The solution is easily found and given by \(\mathbf{\hat x}_{\text{OLS}} = (\mathbf{A}^T \mathbf{A})^\dagger \mathbf{A}^T \mathbf{y}\) where \(\dagger\) denotes the Moore-Penrose pseudo-inverse. Although the problem is intuitively appealing and its solution is simple, OLS suffers from several draw backs.</p>
 
 <p>First, the problem is often poorly conditioned which a numerical analysts way of saying the solution is sensitive to noise in the data. The normal equation solution provided above exacerbates problems with conditioning. Second, the standard formulation assumes that the data or design matrix \(\mathbf A\) is known precisely which is often a poor assumption. Typical causes of operator uncertainty are sampling error, measurement error, human error, modeling error, or rounding error.</p>
 
@@ -508,7 +510,7 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2021 Richard J. Clancy. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2022 Richard J. Clancy. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>

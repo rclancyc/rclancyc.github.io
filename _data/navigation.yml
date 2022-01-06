@@ -17,6 +17,8 @@ projects:
     children: 
       - title: "+ Uncertain Regression"
         url: /projects/regression/
+      - title: "+ Blind Source Separation"
+        url: /projects/blindss/
 
   - title: "Numerical Methods"
     children:

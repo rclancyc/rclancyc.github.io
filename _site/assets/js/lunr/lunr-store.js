@@ -1,12 +1,18 @@
 var store = [{
         "title": " ",
+        "excerpt":"Blind source separation (BSS) focuses on extracting meaningful components from a signal mixture which is often represented as time course data from a sensor array. The sensors are often microphones, radar receivers, or antenna arrays. My primary motivativation for studying BSS is to localize brain activity in neuroimaging, but the...","categories": [],
+        "tags": [],
+        "url": "/projects/blindss/",
+        "teaser": null
+      },{
+        "title": " ",
         "excerpt":"This section is based on my Masters thesis completed while at Texas State. It’s been my intention for several years now to submit this work to a journal, but for the time being, this page will have to suffice. Background Partial differential equations (PDEs) lay the foundation for the physical...","categories": [],
         "tags": [],
         "url": "/projects/errorbounds/",
         "teaser": null
       },{
         "title": "Projects",
-        "excerpt":"This page contains several projects I have either completed over the past few years or am currently working on.   Regression   Trust Region Methods   Brain Imaging  ","categories": [],
+        "excerpt":"This page contains several projects I have either completed over the past few years or am currently working on.   Statistics     Regression   Blind Source Separation   Numerical Methods     Trust Region Methods   Error Bounds for Numerical PDEs   Simulation and Modeling     Brain Imaging  ","categories": [],
         "tags": [],
         "url": "/projects/index",
         "teaser": null
