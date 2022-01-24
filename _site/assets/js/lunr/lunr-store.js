@@ -1,5 +1,5 @@
 var store = [{
-        "title": " ",
+        "title": "Blind Source Separation",
         "excerpt":"Blind source separation (BSS) focuses on extracting meaningful components from a signal mixture which is often represented as time course data from a sensor array. The sensors are often microphones, radar receivers, or antenna arrays. My primary motivativation for studying BSS is to localize brain activity in neuroimaging, but the...","categories": [],
         "tags": [],
         "url": "/projects/blindss/",

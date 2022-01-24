@@ -20,7 +20,7 @@ u(x) & = g(x), \qquad x \in \partial \Omega,
 \end{align}
 $$
 
-where $$\Omega$$ is the interior of the domain and $$\partial \Omega$$ is the boundary. Unfortunately, most PDEs can’t be solved analytically. This limitation necessitates approximate solutions to these systems.
+where $$\Omega$$ is the interior of some domain and $$\partial \Omega$$ is its boundary. Unfortunately, most PDEs can’t be solved analytically. This limitation necessitates approximate solutions to these systems.
 
 To simplify the problem, rather than solving the PDE on a continuum, $$\Omega$$ is discretized to a finite number of points and a solution is found that satisfies the equation on this constrained or projected set. The discretized PDE is written as 
 
@@ -33,7 +33,7 @@ $$
 
 The subscript denotes the discretized operator and domain. For those of you unfamiliar with numerical PDEs, a natural question is how one finds a discretized operator?
 
-A classical method for discretizing and solving PDEs numerically is the finite difference method (FDM). The basic idea is to use Taylor expansions to approximate differential operators. For illustrative purposes, consider the one dimensional function $$f(x)$$. To approximate $$f''(x)$$, we Taylor expand $$f(x+h)$$ and $$f(x-h)$$ about $$x$$. We call $$h$$ our step size and write $$f(x), \ f(x+h)$$ and $$f(x-h)$$ as $$f_0, \ f_+$$, and $$f_-$$, respectively. Hence, we can write 
+A classical method for discretizing and solving PDEs numerically is the finite difference method (FDM). The basic idea is to use Taylor expansions to approximate differential operators. For illustrative purposes, consider the one dimensional function $$f(x)$$. To approximate $$f''(x)$$, we Taylor expand $$f(x+h)$$ and $$f(x-h)$$ about $$x$$. We call $$h$$ our step size and write $$f(x), \ f(x+h)$$ and $$f(x-h)$$ as $$f_0, \ f_+$$, and $$f_-$$, respectively. We have
 
 $$
 \begin{align}
@@ -67,7 +67,7 @@ In the above expansion, we benefited from the symmetry in step sizes. Since $$f_
 
 # Non-Uniform Meshes
 
-We now consider the case where the left and right step sizes are different. In the above case, a naive error analysis suggests that the truncation error varies as $$\mathcal O (h)$$ rather then $$\mathcal O (h^2)$$ owing the 3rd derivative term. One reason to use an irregular mesh is when the boundary exhibits non-standard geometry. This becomes a concern for simple problem such as using a Cartesian mesh on a circular domain. Since the boundary elements are irregularly spaced from interior mesh points, an asymmetric mesh must be used as seen in Figure 1. 
+We now consider the case where the left and right step sizes are different. In the above case, a naive error analysis suggests that the truncation error varies as $$\mathcal O (h)$$ rather then $$\mathcal O (h^2)$$ owing to the 3rd derivative term. One reason to use an irregular mesh is when the boundary exhibits non-standard geometry. This becomes a concern for simple problems such as using a Cartesian mesh on a circular domain. Since the boundary elements are irregularly spaced from interior mesh points, an asymmetric mesh must be used as seen in Figure 1. 
 
 <p align="center">
   <img title="Cartesian mesh on circular domain" alt="Cartesian mesh on circular domain" src="/assets/images/circle.jpg" width="300">
@@ -82,7 +82,7 @@ Another use for non-uniform meshes is increased resolution in regions where the 
   <img title="Solution" src="/assets/images/solution.png" width="310"><img title="Solution error" src="/assets/images/solutionerror.png" width="310">
 </p>
 <p align = "center">
-  <em> <small> Figure 2: Solution to Poisson's equation over a flag-shaped domain (left) and the corresponding numerical error (right). </small> </em>
+  <em> <small> Figure 2: Solution to Poisson's equation over a flag-shaped domain (left) and the corresponding numerical error (right). Note that solution and error are viewed from different perspectives. </small> </em>
 </p>
 
 # Improved Truncation Error 

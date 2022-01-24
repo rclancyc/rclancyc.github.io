@@ -7,7 +7,7 @@ header:
   overlay_image: /assets/images/stcroix1.jpg
   caption: "St. Croix, USVI"
 ---
-Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado at Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus primarily on numerical optimization, inverse problems, and regression subject to uncertain data. Although this website is a work in progress, you can find information about my research including several projects I've worked on over the years. __I plan to graduate in May-August 2022 and will be on the job market!__
+Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado - Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus primarily on numerical optimization, inverse problems, and regression subject to uncertain data. Although this website is a work in progress, you can find information about my research including several projects I've worked on over the years. __I plan to graduate in May-August 2022 and will be on the job market!__
 
 
 
@@ -49,7 +49,7 @@ Welcome to my personal website! I am fifth year PhD student in Applied Mathemati
 
 ### May 2020
 
-- My summer will be spent at [FieldLine, Inc.](https://fieldlineinc.com/) continuing work on the simulation and the solution of inverse problems for brain imaging.
+- My summer will be spent at [FieldLine, Inc.](https://fieldlineinc.com/) continuing work on the simulation and solution of inverse problems for brain imaging.
 
 ### March 2020
 
@@ -61,7 +61,7 @@ Welcome to my personal website! I am fifth year PhD student in Applied Mathemati
 
 ### January 2019
 
-- I have officially completed the preliminary exam portion of the PhD degree by passing the Probability and Statistics exam! In addition, I am done with my course work!
+- I have officially completed the preliminary exam portion of the PhD degree by passing the Probability and Statistics exam! In addition, I am done with course work!
 
 ### August 2018
 

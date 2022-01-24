@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-01-06T10:25:33-07:00">
+  <meta property="article:published_time" content="2022-01-24T00:45:33-07:00">
 
 
 
@@ -284,9 +284,9 @@
 
 <p>It is a grotesque understatement to say that the human brain is complex. Although we are a long way from a complete understanding of the brain, we understand some of its basic functions. Of particular interest is the propagation of electrical signals across synapsis which the brain uses to relay instruction to the body. As electrons flow, there are neural currents that, as Maxwell’s equation show, give rise to magnetic fields.</p>
 
-<p>These biomagnetic fields induced by brain currents are extremely weak (7 to 10 orders of magnitude smaller than the Earth’s field). Despite the seeming hopelessness of recovering such ridiculously small signal, it is possible and precisely the goal of magnetoencelphalography  (pronounced <em>mag-nee-toe-en-sell-ful-ography</em>). Don’t worry if you can’t say it, you have plenty of good company. Since it’s a mouthful, we normally go with its acronym…MEG.</p>
+<p>These biomagnetic fields induced by brain currents are extremely weak (7 to 10 orders of magnitude smaller than the Earth’s field). Despite the seeming hopelessness of recovering such small signal, it is possible and precisely the goal of magnetoencelphalography  (pronounced <em>mag-nee-toe-en-sell-ful-ography</em>). Don’t worry if you can’t say it, you have plenty of good company. Since it’s a mouthful, we normally go with its acronym…MEG.</p>
 
-<p>MEG is a non-invasive method to image brain function with high spatial and temporal resolution. This is done by placing an array of magnetometers on the scalp and measuring the magnetics field. As one can imagine, it is difficult to isolate brain fields from those originating externally, i.e., Earth, electrical lines, train passing nearby, etc. Nearly every other source will have a magnetic signature orders of magnitude larger than those induced by brain currents.</p>
+<p>MEG is a non-invasive method to image brain function with high spatial and temporal resolution. This is done by placing an array of magnetometers on the scalp and measuring the magnetic field. As one can imagine, it is difficult to isolate brain fields from those originating externally, i.e., Earth, electrical lines, train passing nearby, etc. Nearly every other source will have a magnetic signature orders of magnitude larger than those induced by brain currents.</p>
 
 <p align="center">
   <img title="https://commons.wikimedia.org/wiki/File:Magnetoencephalography.svg#/media/File:Magnetoencephalography.svg" alt="https://commons.wikimedia.org/wiki/File:Magnetoencephalography.svg#/media/File:Magnetoencephalography.svg" src="/assets/images/Magnetoencephalography.svg" />
@@ -299,18 +299,18 @@
 
 <h1 id="new-possibilities-with-new-sensors">New Possibilities with New Sensors</h1>
 
-<p>Recent advances in total field optically pumped magnetometers (OPM) offer a promising alternative to SQUIDs. They operate at room temperature thus eliminating the need for bulky Dewars and hence can be placed within millimeters of the scalp. For more detail, see an <a href="https://tf.nist.gov/general/pdf/2687.pdf">overview here</a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> OPMs are also capable of measuring weak magnetic fields induced by the brain in the presence of large ambient fields allowing for the possibility of wearable MEG systems outside of laboratory environments.</p>
+<p>Recent advances in total field optically pumped magnetometers (OPM) offer a promising alternative to SQUIDs. They operate at room temperature thus eliminating the need for bulky Dewars and hence can be placed within millimeters of the scalp. For more detail, see an <a href="https://tf.nist.gov/general/pdf/2687.pdf">overview here</a><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>. OPMs are also capable of measuring weak magnetic fields induced by the brain in the presence of large ambient fields allowing for the possibility of wearable MEG systems outside of laboratory environments.</p>
 
 <p>Since total field OPMs are a nascent technology for biomedical imaging, I’ve collaborated with experts in the field such as <a href="https://www.linkedin.com/in/svenja-knappe-701aa613a/">Svenja Knappe</a>, <a href="https://www.linkedin.com/in/orang-alem/">Orang Alem</a>, and <a href="https://www.linkedin.com/in/kjeramyhughes/">Jeramy Hughes</a> for a simulation study to determine necessary system specifications including sensor count, sensitivity, and forward model fidelity to accurately localize a single dipolar current in a brain modelled as a conducting sphere.</p>
 
 <h1 id="project-scope">Project Scope</h1>
 
-<p>I joined this project to help find methods for extracting the signal of interest then write software capable of solving an inverse problem from magnetometer data. In addition, I ran simulation studies to establish 1) the number of magnetometers necessary, 2) the sensitivity required, and 3) the accuracy of forward model to accurately localize a single dipolar current using OPMs in a large ambient field.</p>
+<p>I joined this project to help find methods for extracting the signal of interest and write software capable of solving an inverse problem from magnetometer data. In addition, I ran simulation studies to establish 1) the number of magnetometers necessary, 2) the sensitivity required, and 3) the accuracy of forward model to accurately localize a single dipolar current using OPMs in a large ambient field.</p>
 
 <p>Following the general model for dipole localization in a conducting sphere, the sources are modeled as <em>current dipoles</em> specified by their position, orientation, and magnitude of directional current flow. Current dipoles, which model nearby groups of neurons firing in unison, give rise to magnetic field patterns; these are distinct from <em>magnetic dipoles</em> which can be thought of as small bar magnets. An example field generated by a dipole in a conducting sphere can be found in Figure 2.</p>
 
 <p align="center">
-  <img title="Field induced by current dipole" alt="Field from current dipole" src="/assets/images/conducting_sphere_orientation_example.png" />
+  <img title="Field induced by current dipole" alt="Field from current dipole" src="/assets/images/conducting_sphere_orientation_example.png" width="400" />
 </p>
 <p align="center">
   <em> <small> Figure 2: Field line orientation induced by a current dipole. </small> </em>
@@ -321,7 +321,7 @@
 <h1 id="forward-model">Forward Model</h1>
 <p>A forward model characterizes the magnetic field of a known source throughout space. We consider the conducting sphere model of radius 9.1 cm provided in Sarvas<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup></p>
 <p align="center">
-  <img title="Diagram for field" alt="Field from current dipole" src="/assets/images/geogebra-export.png" />
+  <img title="Diagram for field" alt="Field from current dipole" src="/assets/images/geogebra-export.png" width="400" />
 </p>
 <p align="center">
   <em> <small> Figure 3: A current dipole gives rise to fields according to a forward model. </small> </em>
