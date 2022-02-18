@@ -54,6 +54,7 @@ __Trust region algorithm__
 -------------------
 
 # Variable Precision Trust Region Methods
+The work in this section is based on our preprint, ["TROPHY: Trust Region Optimization Using a Precision Hierarchy"](https://arxiv.org/abs/2202.08387).
 
 We consider the model $$m_k(\mathbf p) = f(\mathbf  x_k) + \mathbf  p^T \nabla f(\mathbf  x_k) + (1/2) \mathbf  p^T \mathbf  H_k \mathbf  p$$ where $$\mathbf  H_k$$ is an approximation for the Hessian and assume that the function and its gradient are expensive to compute. This setup is typical for PDE constrained and large-scale optimization. Since it can take hours to compute a single function/gradient pair, we'd like to evaluate them as infrequently as possible. Under such conditions, line-search methods are undesirable since they may require calling the objective many times for a single iteration. Trust region methods are a natural choice. 
 
@@ -127,4 +128,4 @@ $$
   \begin{bmatrix} L \\ I \end{bmatrix} \alpha_L + \begin{bmatrix} Q \\ D_j \end{bmatrix} \alpha_Q = \begin{bmatrix} \mathbf f \\ \nabla f(\mathbf x_j) \end{bmatrix},
 $$
 
-where $$I$$ is the identity matrix and $$D_j$$ is the Jacobian (derivative) of the vector $$\phi(\mathbf{x})$$ at $$\mathbf x = \mathbf x_j. More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.
+where $$I$$ is the identity matrix and $$D_j$$ is the Jacobian (derivative) of the vector $$\phi(\mathbf{x})$$ at $$\mathbf x = \mathbf x_j$$. More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.

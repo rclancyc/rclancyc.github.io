@@ -15,6 +15,9 @@ Welcome to my personal website! I am fifth year PhD student in Applied Mathemati
 
 # Recent News
 
+### February 2022
+- Hot off the press! Read about [TROPHY](https://arxiv.org/abs/2202.08387), a trust region algorithm that uses mixed precision arithmetic for function and gradient evaluations to reduce the computational load for numerical optimization.
+
 ### December 2021
 - I was fortunate to share my work on brain imaging and other topics in applied math with the [Institute for Human Neuroscience](https://www.boystownhospital.org/research/institute-human-neuroscience) at Boys Town Research Hospital in Omaha, Nebraska. 
 

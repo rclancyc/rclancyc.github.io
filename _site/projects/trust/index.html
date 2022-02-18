@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-01-24T00:45:33-07:00">
+  <meta property="article:published_time" content="2022-02-17T20:03:24-07:00">
 
 
 
@@ -337,6 +337,7 @@
 <hr />
 
 <h1 id="variable-precision-trust-region-methods">Variable Precision Trust Region Methods</h1>
+<p>The work in this section is based on our preprint, <a href="https://arxiv.org/abs/2202.08387">“TROPHY: Trust Region Optimization Using a Precision Hierarchy”</a>.</p>
 
 <p>We consider the model \(m_k(\mathbf p) = f(\mathbf  x_k) + \mathbf  p^T \nabla f(\mathbf  x_k) + (1/2) \mathbf  p^T \mathbf  H_k \mathbf  p\) where \(\mathbf  H_k\) is an approximation for the Hessian and assume that the function and its gradient are expensive to compute. This setup is typical for PDE constrained and large-scale optimization. Since it can take hours to compute a single function/gradient pair, we’d like to evaluate them as infrequently as possible. Under such conditions, line-search methods are undesirable since they may require calling the objective many times for a single iteration. Trust region methods are a natural choice.</p>
 
@@ -449,7 +450,7 @@
 
 \[\begin{bmatrix} L \\ I \end{bmatrix} \alpha_L + \begin{bmatrix} Q \\ D_j \end{bmatrix} \alpha_Q = \begin{bmatrix} \mathbf f \\ \nabla f(\mathbf x_j) \end{bmatrix},\]
 
-<p>where \(I\) is the identity matrix and \(D_j\) is the Jacobian (derivative) of the vector \(\phi(\mathbf{x})\) at $$\mathbf x = \mathbf x_j. More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.</p>
+<p>where \(I\) is the identity matrix and \(D_j\) is the Jacobian (derivative) of the vector \(\phi(\mathbf{x})\) at \(\mathbf x = \mathbf x_j\). More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.</p>
 
         
       </section>
