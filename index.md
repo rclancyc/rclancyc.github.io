@@ -7,19 +7,24 @@ header:
   overlay_image: /assets/images/stcroix1.jpg
   caption: "St. Croix, USVI"
 ---
-Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado - Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus primarily on numerical optimization, inverse problems, and regression subject to uncertain data. Although this website is a work in progress, you can find information about my research including several projects I've worked on over the years. __I plan to graduate in May-August 2022 and will be on the job market!__
+Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado - Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus on numerical optimization, inverse problems, and regression subject to uncertain data. I have a broad background in algorithms used for machine learning, signal processing, and physical simulations. Although this website is a work in progress, you can find information about my research including a few projects I've worked on over the years. I am defending my dissertation April 5th. 
+
+___I am on the job market to start this summer!___
 
 
+---
 
 
 
 # Recent News
 
 ### February 2022
-- Hot off the press! Read about [TROPHY](https://arxiv.org/abs/2202.08387), a trust region algorithm that uses mixed precision arithmetic for function and gradient evaluations to reduce the computational load for numerical optimization.
+
+- Hot off the press! Read about [TROPHY](https://arxiv.org/abs/2202.08387), a trust region algorithm that uses mixed precision arithmetic for function and gradient evaluations to reduce the computational load for numerical optimization. 
 
 ### December 2021
-- I was fortunate to share my work on brain imaging and other topics in applied math with the [Institute for Human Neuroscience](https://www.boystownhospital.org/research/institute-human-neuroscience) at Boys Town Research Hospital in Omaha, Nebraska. 
+
+- I was fortunate to share my work on brain imaging and other topics in applied math with the [Institute for Human Neuroscience](https://www.boystownhospital.org/research/institute-human-neuroscience) at Boys Town Research Hospital in Omaha, Nebraska.
 
 ### September 2021
 

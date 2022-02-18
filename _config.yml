@@ -53,11 +53,12 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-remote-theme
 
 author:
   name   : #"Richard Clancy"
   avatar : "/assets/images/headshotFI.jpg"
-  bio    : "Applied mathematician, optimizer, programmer, and data scientist"
+  bio    : "Applied mathematician, \n optimizer, programmer, and data scientist"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
