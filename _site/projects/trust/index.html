@@ -31,7 +31,7 @@
 
 
 
-  <meta property="article:published_time" content="2022-02-18T00:03:08-07:00">
+  <meta property="article:published_time" content="2022-04-18T16:55:50-05:00">
 
 
 
@@ -341,7 +341,7 @@
 
 <p>We consider the model \(m_k(\mathbf p) = f(\mathbf  x_k) + \mathbf  p^T \nabla f(\mathbf  x_k) + (1/2) \mathbf  p^T \mathbf  H_k \mathbf  p\) where \(\mathbf  H_k\) is an approximation for the Hessian and assume that the function and its gradient are expensive to compute. This setup is typical for PDE constrained and large-scale optimization. Since it can take hours to compute a single function/gradient pair, we’d like to evaluate them as infrequently as possible. Under such conditions, line-search methods are undesirable since they may require calling the objective many times for a single iteration. Trust region methods are a natural choice.</p>
 
-<p>Given the computational burden associated with calling the function, we would like to find ways to reduce the cost. Although double precision is standard for scientific computing, there are many situations where the additional accuracy is unnecessary. Furthermore, new hardware including GPUs and TCUs natively support lower precision types such as single and big float halfs which can significantly reduce computational, communication, and storage costs as well as power consumption. In work with <a href="https://www.anl.gov/profile/jan-christian-hueckelheim">Jan Hückelheim</a>, <a href="https://www.anl.gov/profile/matt-menickelly">Matt Mennickelly</a>, <a href="https://www.mcs.anl.gov/~hovland/">Paul Hovland</a>, and <a href="https://www.anl.gov/profile/sri-hari-krishna-narayanan">Krishna Narayanan</a> of Argonne National Laboratory, we investigated the use of switching precision when necessary to reduce the computational load.</p>
+<p>Given the computational burden associated with calling the function, we would like to find ways to reduce the cost. Although double precision is standard for scientific computing, there are many situations where the additional accuracy is unnecessary. Furthermore, new hardware including GPUs and TCUs natively support lower precision types such as single and big float halfs which can significantly reduce computational, communication, and storage costs as well as power consumption. In work with <a href="https://www.anl.gov/profile/jan-christian-hueckelheim">Jan Hückelheim</a>, <a href="https://www.anl.gov/profile/matt-menickelly">Matt Menickelly</a>, <a href="https://www.mcs.anl.gov/~hovland/">Paul Hovland</a>, and <a href="https://www.anl.gov/profile/sri-hari-krishna-narayanan">Krishna Narayanan</a> of Argonne National Laboratory, we investigated the use of switching precision when necessary to reduce the computational load.</p>
 
 <p>To further reduce the cost for large scale problems, we used a limited memory symmetric rank-1 update for the approximate Hessian. This allowed us to implement a matrix-free Hessian-vector product to keep the linear algebra cost on the trust region subproblem low. Preliminary results are promising showing a reduction in cost assuming that single (half) precision evaluations can be computed for 1/2 (1/4) of the cost required for double precision.</p>
 
@@ -417,26 +417,27 @@
 
 \[m_k(x,y) = g_x x + g_y y + \frac{1}{2}(H_{xx} x^2 + 2 H_{xy} xy + H_{yy} y^2).\]
 
-<p>Note that we can write this as a linear function of \(\alpha^T = [g_x, \ g_y, \ H_{xx}, \ H_{yy}, \ H_{xy}]\). Hence, letting \(\phi(\mathbf p)^T = [x, \ y, \ (1/2) x^2, \ (1/2)y^2, \ xy]\), we have the linear function \(m_k(\mathbf p) =  \phi(\mathbf p)^T \alpha.\) This gives rise to a Vandermonde system to find the interpolating polynomial coefficients. We solve the following equation for \(\alpha\):</p>
+<p>Note that we can write this as a linear function of \(\boldsymbol{\alpha}^T = [g_x, \ g_y, \ H_{xx}, \ H_{yy}, \ H_{xy}]\). Hence, letting \(\phi(\mathbf p)^T = [x, \ y, \ (1/2) x^2, \ (1/2)y^2, \ xy]\), we have the linear function \(m_k(\mathbf p) =  \phi(\mathbf p)^T \boldsymbol{\alpha}.\) This gives rise to a Vandermonde system to find the interpolating polynomial coefficients. We solve the following equation for \(\boldsymbol{\alpha}\):</p>
 
 \[\begin{bmatrix} 
    \rule{1cm}{0.4pt} &amp; \phi(\mathbf p_1)^T &amp; \rule{1cm}{0.4pt}  \\
    \rule{1cm}{0.4pt} &amp; \phi(\mathbf p_2)^T &amp; \rule{1cm}{0.4pt} \\
    &amp; \vdots &amp;  \\
    \rule{1cm}{0.4pt} &amp; \phi(\mathbf p_m)^T &amp; \rule{1cm}{0.4pt}
-  \end{bmatrix} \alpha = \mathbf f,\]
+  \end{bmatrix} \boldsymbol{\alpha} = \mathbf f,\]
 
-<p>where \(\mathbf{f}\) is a vector of centered function values for the current iteration \(k\), i.e., \((\mathbf f)_j = f(\mathbf p_j)-f(\mathbf p_k)\). We let  \(V\) represent the matrix composed of \(\phi\)’s. We generally split \(V\) into two separate matrices corresponding to the linear and quadratic components such that \([L, \ Q] = V\) and \([\alpha^T_L, \ \alpha^T_Q] = \alpha\). We rewrite the Vandermonde system as 
-\(L \alpha_L + Q \alpha_Q = \mathbf f_k.\)</p>
+<p>where \(\mathbf{f}\) is a vector of centered function values for the current iteration \(k\), i.e., \((\mathbf f)_j = f(\mathbf p_j)-f(\mathbf p_k)\). We let  \(\mathbf V\) represent the matrix composed of \(\phi\)’s. We generally split \(\mathbf V\) into two separate matrices corresponding to the linear and quadratic components such that \([\mathbf L, \ \mathbf Q] = \mathbf V\) and \([\mathbf g^T, \ \mathbf h^T] = \boldsymbol{\alpha}\). We rewrite the Vandermonde system as</p>
 
-<p>It is easily seen that this same formulation will extend to higher dimension with \(\alpha_L\) being the linear weights, the first \(n\) components of \(\alpha_Q\) corresponding the diagonal terms of the quadratic polynomial Hessian, and the remainder corresponding to the cross-terms.</p>
+\[\mathbf L \mathbf g + \mathbf Q \mathbf h = \mathbf f_k.\]
+
+<p>It is easily seen that this same formulation will extend to higher dimension with \(\mathbf L\) being the linear weights, the first \(n\) components of \(\mathbf h\) corresponding the diagonal terms of the quadratic polynomial Hessian, and the remainder corresponding to the cross-terms.</p>
 
 <h2 id="underdetermined-system">Underdetermined system</h2>
 
 <p>To have a unique solution for the Vandermonde system above, there must be an equal number of interpolating conditions to the number of coefficients in the polynomial. For high-dimensional problems we often have many more variables than constraints. In such cases, we can recover a unique solution by solving them minimum norm problem, i.e.,</p>
 
-\[\min_{\alpha} \qquad \qquad \frac{1}{2} \|\alpha_Q \|^2 \\
-\text{subject to} \quad L \alpha_L + Q \alpha_Q = \mathbf f_k.\]
+\[\min_{\mathbf h} \qquad \qquad \frac{1}{2} \|\mathbf h \|^2 \\
+\text{subject to} \quad \mathbf L \mathbf g + \mathbf Q \mathbf h= \mathbf f_k.\]
 
 <h2 id="hermite-interpolation-for-trust-regions">Hermite interpolation for trust regions</h2>
 
@@ -448,9 +449,9 @@
 
 <p>This can be rewritten with an augmented Vandermonde system,</p>
 
-\[\begin{bmatrix} L \\ I \end{bmatrix} \alpha_L + \begin{bmatrix} Q \\ D_j \end{bmatrix} \alpha_Q = \begin{bmatrix} \mathbf f \\ \nabla f(\mathbf x_j) \end{bmatrix},\]
+\[\begin{bmatrix} \mathbf L \\ \mathbf I \end{bmatrix} \mathbf g + \begin{bmatrix} \mathbf Q\\ \mathbf D_j \end{bmatrix} \mathbf h = \begin{bmatrix} \mathbf f \\ \nabla f(\mathbf x_j) \end{bmatrix},\]
 
-<p>where \(I\) is the identity matrix and \(D_j\) is the Jacobian (derivative) of the vector \(\phi(\mathbf{x})\) at \(\mathbf x = \mathbf x_j\). More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.</p>
+<p>where \(\mathbf I\) is the identity matrix and \(D_j\) is the Jacobian (derivative) of the vector \(\phi(\mathbf{x})\) at \(\mathbf x = \mathbf x_j\). More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.</p>
 
         
       </section>

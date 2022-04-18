@@ -87,7 +87,7 @@ $$
   m_k(x,y) = g_x x + g_y y + \frac{1}{2}(H_{xx} x^2 + 2 H_{xy} xy + H_{yy} y^2).
 $$
 
-Note that we can write this as a linear function of $$\alpha^T = [g_x, \ g_y, \ H_{xx}, \ H_{yy}, \ H_{xy}]$$. Hence, letting $$\phi(\mathbf p)^T = [x, \ y, \ (1/2) x^2, \ (1/2)y^2, \ xy]$$, we have the linear function $$m_k(\mathbf p) =  \phi(\mathbf p)^T \alpha.$$ This gives rise to a Vandermonde system to find the interpolating polynomial coefficients. We solve the following equation for $$\alpha$$:
+Note that we can write this as a linear function of $$\boldsymbol{\alpha}^T = [g_x, \ g_y, \ H_{xx}, \ H_{yy}, \ H_{xy}]$$. Hence, letting $$\phi(\mathbf p)^T = [x, \ y, \ (1/2) x^2, \ (1/2)y^2, \ xy]$$, we have the linear function $$m_k(\mathbf p) =  \phi(\mathbf p)^T \boldsymbol{\alpha}.$$ This gives rise to a Vandermonde system to find the interpolating polynomial coefficients. We solve the following equation for $$\boldsymbol{\alpha}$$:
 
 $$
   \begin{bmatrix} 
@@ -95,22 +95,23 @@ $$
    \rule{1cm}{0.4pt} & \phi(\mathbf p_2)^T & \rule{1cm}{0.4pt} \\
    & \vdots &  \\
    \rule{1cm}{0.4pt} & \phi(\mathbf p_m)^T & \rule{1cm}{0.4pt}
-  \end{bmatrix} \alpha = \mathbf f,
+  \end{bmatrix} \boldsymbol{\alpha} = \mathbf f,
 $$
 
-where $$\mathbf{f}$$ is a vector of centered function values for the current iteration $$k$$, i.e., $$(\mathbf f)_j = f(\mathbf p_j)-f(\mathbf p_k)$$. We let  $$V$$ represent the matrix composed of $$\phi$$'s. We generally split $$V$$ into two separate matrices corresponding to the linear and quadratic components such that $$[L, \ Q] = V$$ and $$[\alpha^T_L, \ \alpha^T_Q] = \alpha$$. We rewrite the Vandermonde system as 
+where $$\mathbf{f}$$ is a vector of centered function values for the current iteration $$k$$, i.e., $$(\mathbf f)_j = f(\mathbf p_j)-f(\mathbf p_k)$$. We let  $$\mathbf V$$ represent the matrix composed of $$\phi$$'s. We generally split $$\mathbf V$$ into two separate matrices corresponding to the linear and quadratic components such that $$[\mathbf L, \ \mathbf Q] = \mathbf V$$ and $$[\mathbf g^T, \ \mathbf h^T] = \boldsymbol{\alpha}$$. We rewrite the Vandermonde system as 
+
 $$
-  L \alpha_L + Q \alpha_Q = \mathbf f_k.
+  \mathbf L \mathbf g + \mathbf Q \mathbf h = \mathbf f_k.
 $$
 
- It is easily seen that this same formulation will extend to higher dimension with $$\alpha_L$$ being the linear weights, the first $$n$$ components of $$\alpha_Q$$ corresponding the diagonal terms of the quadratic polynomial Hessian, and the remainder corresponding to the cross-terms.
+ It is easily seen that this same formulation will extend to higher dimension with $$\mathbf L$$ being the linear weights, the first $$n$$ components of $$\mathbf h$$ corresponding the diagonal terms of the quadratic polynomial Hessian, and the remainder corresponding to the cross-terms.
 
 ## Underdetermined system
 
 To have a unique solution for the Vandermonde system above, there must be an equal number of interpolating conditions to the number of coefficients in the polynomial. For high-dimensional problems we often have many more variables than constraints. In such cases, we can recover a unique solution by solving them minimum norm problem, i.e.,
 
-$$ \min_{\alpha} \qquad \qquad \frac{1}{2} \|\alpha_Q \|^2 \\
-\text{subject to} \quad L \alpha_L + Q \alpha_Q = \mathbf f_k.$$
+$$ \min_{\mathbf h} \qquad \qquad \frac{1}{2} \|\mathbf h \|^2 \\
+\text{subject to} \quad \mathbf L \mathbf g + \mathbf Q \mathbf h= \mathbf f_k.$$
 
 ## Hermite interpolation for trust regions
 
@@ -125,7 +126,7 @@ $$
 This can be rewritten with an augmented Vandermonde system,
 
 $$
-  \begin{bmatrix} L \\ I \end{bmatrix} \alpha_L + \begin{bmatrix} Q \\ D_j \end{bmatrix} \alpha_Q = \begin{bmatrix} \mathbf f \\ \nabla f(\mathbf x_j) \end{bmatrix},
+  \begin{bmatrix} \mathbf L \\ \mathbf I \end{bmatrix} \mathbf g + \begin{bmatrix} \mathbf Q\\ \mathbf D_j \end{bmatrix} \mathbf h = \begin{bmatrix} \mathbf f \\ \nabla f(\mathbf x_j) \end{bmatrix},
 $$
 
-where $$I$$ is the identity matrix and $$D_j$$ is the Jacobian (derivative) of the vector $$\phi(\mathbf{x})$$ at $$\mathbf x = \mathbf x_j$$. More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.
+where $$\mathbf I$$ is the identity matrix and $$D_j$$ is the Jacobian (derivative) of the vector $$\phi(\mathbf{x})$$ at $$\mathbf x = \mathbf x_j$$. More derivatives can be added but there are limits based on the degree of the polynomial for the system to remain consistent. In ongoing work, we are investigating how to exploit derivative information to improve interpolation based TR methods.
