@@ -15,8 +15,7 @@ Welcome to my personal website! I am fifth year PhD student in Applied Mathemati
 
 ### April 2022
 
-- I succesfully defended my dissertation titled "Mathmematical Formulations with Uncertain Data in Optimization and Inverse Problems".
-
+- I succesfully defended my dissertation titled "Mathematical Formulations with Uncertain Data in Optimization and Inverse Problems".
 
 ### February 2022
 
