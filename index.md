@@ -7,15 +7,19 @@ header:
   overlay_image: /assets/images/stcroix1.jpg
   caption: "St. Croix, USVI"
 ---
-Welcome to my personal website! I am fifth year PhD student in Applied Mathematics at the [University of Colorado - Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I focus on numerical optimization, inverse problems, and regression subject to uncertain data. I have a broad background in algorithms used for machine learning, signal processing, and physical simulations. Although this website is a work in progress, you can find information about my research including a few projects I've worked on over the years.
+Welcome to my personal website! As a mathematician at Northrop Grumman, I work on algorithms for Space Sytems sector with an emphasis on numerical optimization, inverse problems, and state estimation. I receive my PhD in Applied Mathematics from the [University of Colorado - Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I have a broad background in mathematics, machine learning, signal processing, and physical simulations. Although this website is a work in progress, you can find information about my research including a few projects I've worked on over the years.
 
 ---
 
 # Recent News
 
+### June 2022
+
+- Started as a Principal Mathematician at Northrop Grumman in Boulder.
+
 ### April 2022
 
-- I succesfully defended my dissertation titled "Mathematical Formulations with Uncertain Data in Optimization and Inverse Problems".
+- Succesfully defended my dissertation titled "Mathematical Formulations with Uncertain Data in Optimization and Inverse Problems".
 
 ### February 2022
 
