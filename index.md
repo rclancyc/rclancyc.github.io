@@ -7,11 +7,17 @@ header:
   overlay_image: /assets/images/stcroix1.jpg
   caption: "St. Croix, USVI"
 ---
-Welcome to my personal website! As a mathematician at Northrop Grumman, I work on algorithms for Space Sytems sector with an emphasis on numerical optimization, inverse problems, and state estimation. I receive my PhD in Applied Mathematics from the [University of Colorado - Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I have a broad background in mathematics, machine learning, signal processing, and physical simulations. Although this website is a work in progress, you can find information about my research including a few projects I've worked on over the years.
+Welcome to my personal website! As a mathematician at Northrop Grumman, I work on algorithms for Space Sytems with an emphasis on numerical optimization, inverse problems, and state estimation. I received my PhD in Applied Mathematics from the [University of Colorado - Boulder](https://www.colorado.edu/amath/) working with [Stephen Becker](https://amath.colorado.edu/faculty/becker/). I have a broad background in mathematics, machine learning, signal processing, and physical simulations. Although this website is a work in progress, you can find information about my research including a few projects I've worked on over the years.
 
 ---
 
 # Recent News
+
+### September 2024
+- Our paper [Approximate maximum likelihood estimators for linear regression with independent component-wise design matrix uncertainty](https://link.springer.com/article/10.1007/s12532-024-00268-6) [(arxiv)](https://arxiv.org/abs/2104.03307) was published in Mathematical Programming Computation!
+
+### October 2023
+- I was promoted to Senior Principal Mathematician!
 
 ### June 2022
 
